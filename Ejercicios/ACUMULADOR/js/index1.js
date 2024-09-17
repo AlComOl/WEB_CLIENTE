@@ -133,39 +133,66 @@ Es de vital importancia para llegar a ser un buen PROGRAMADOR poder resolver pro
 
     /*Mostrar los múltiplos de 10 hasta el valor 1500.
     Debe aparecer en pantalla 10 - 20 -<30 etc.*/
-    let m=10;
+   /* let m=10;
     let acumula=10; 
     while(acumula!=1500){
         acumula+=m;
         document.write(acumula);
         document.write("<br>");
-    }
+    }*/
 
 
     /*Realizar un programa que permita cargar dos listas de 3 valores cada una. Informar con un mensaje cual de las dos listas tiene un valor acumulado mayor (mensajes 'Lista 1 mayor', 'Lista 2 mayor', 'Listas iguales')
     Tener en cuenta que puede haber dos o más estructuras repetitivas en un algoritmo.
-    Desarrollar un programa que permita cargar 5 números enteros y luego nos informe cuántos valores fueron pares y cuántos impares.
-    Emplear el operador "%" en la condición de la estructura condicional.
+   
 
-    	if (valor%2==0)
 
-    El operador "%" retorna el resto de la división valor / 2. Por ejemplo: 12 % 2, retorna 0; 13 % 2, retorna 1, porque el resto de dividir 13 en 2 es 1.
-*/
-
-/*let cont=0;
-let nota1=0;
-let s=0;
-
-while(cont<5){
-     nota=(parseInt(prompt("Introduce nota")));
-     
+let cont=1;
+let cont1=1;
+let acumula=0;
+let acumula1=0;
+while(cont1<=3){
+    cont1++
+    let v1=parseInt(prompt("Introduce valor primera lista"));
+    acumula1=+v1;
+}
+while(cont<=3){
     cont++;
-    nota1+=nota;
-   console.log(cont);
-   console.log(nota1);
+    let v=parseInt(prompt("Introduce valor segunda lista"));
+    acumula=+v;
 }
 
-document.write(nota1/cont);*/
+if(acumula>acumula1){
+    document.write("la lista 2 es mayor");
+}else if(acumula1>acumula){
+    document.write("la lista 1 es mayor");
+}else{
+    document.write("listas iguales");
+}
+
+/*Desarrollar un programa que permita cargar 5 números enteros y luego nos informe cuántos valores fueron pares y 
+cuántos impares.
+Emplear el operador "%" en la condición de la estructura condicional.
+
+	if (valor%2==0)
+
+El operador "%" retorna el resto de la división valor / 2. Por ejemplo: 12 % 2, retorna 0; 13 % 2, retorna 1, porque el resto de dividir 13 en 2 es 1. */
+
+
+let cont=0;
+let par=0;
+let inpar=0;
+
+while(cont<5){
+    cont++;
+    let v=parseInt(prompt("Introduce el valor"));
+        if(v%2==0){
+                par++;
+        }else{
+            inpar++;
+        }
+}
+document.write("Has introcucido "+ par+" valores pares y "+ inpar +" inpares");
 
 /*Ejercicio 6
 
