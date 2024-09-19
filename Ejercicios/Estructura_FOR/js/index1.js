@@ -160,34 +160,34 @@ let res1=0;
 let res2=0;
 
 for(let i=0;i<5;i++){
-    m=prompt("Introduce edad personas turno de mañana"+i);
-    let ma=+m;
-     res=ma/i;
+    m=parseInt(prompt("Introduce edad personas turno de mañana "+i));
+    res+=m;
 }
+
   for(let j=0;j<6;j++){
-       m=prompt("Introduce edad personas turno de tarde"+j);
-        let ma=+m;
-         res1=ma/j;
+       m=parseInt(prompt("Introduce edad personas turno de tarde "+j));
+         res1+=m;
 }
+
     for(let k=0;k<11;k++){
-      m=prompt("Introduce edad personas turno de noche"+k);
-      let ma=+m;
-       res2=ma/k;
-
+      m=parseInt(prompt("Introduce edad personas turno de noche "+k));
+       res2+=m;
 }
 
+res=res/5;
+res1=res1/6;
+res2=res2/11;
 
 
-document.write("turno de mañana"+ res);
+document.write("turno de mañana "+ res);
 document.write("<br>");
-document.write("turno de mañana"+ res1);
+document.write("turno de mañana "+ res1);
 document.write("<br>");
-document.write("turno de mañana"+ res2);
+document.write("turno de mañana "+ res2);
 document.write("<br>");
 
 if(res>res1&&res>res2){
   document.write("El turno de mañana tiene el promedio de edad más alto"+"<br>");
-
 }else{
   if(res1>res2){
     document.write("El turno de tarde tiene el promedio de edad más alto"+"<br>");
