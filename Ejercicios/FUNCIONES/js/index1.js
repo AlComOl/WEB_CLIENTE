@@ -34,24 +34,25 @@ document.write(mostrar());*/
 /* Elaborar una función a la cual le enviemos tres enteros y muestre el menor.*/
 
 
-/*let mayor=parseInt(prompt("Introduce el primer número"));
+let mayor=parseInt(prompt("Introduce el primer número"));
 let menor=parseInt(prompt("Introduce el segundo número"));
 
 document.write(muestra(mayor,menor));
 
 function muestra(mayor,menor){
+  let res;
   if(mayor>menor){
-   let res=menor;
+    res=menor;
   }else{
     
   }
   return res;
 
-}*/
+}
 
 /*averigua si una palabra es palindroma */
 
-let p=prompt("Introduce una palabra");
+/*let p=prompt("Introduce una palabra");
 let palabra =[];
 
 for(let i=0;i<p.length;i++){
@@ -63,7 +64,7 @@ if(res===palabra){
   document.write("La palabra es palindroma");
 }else{
   document.write("La palabra no es palindroma");
-}
+}*/
 
 
 
