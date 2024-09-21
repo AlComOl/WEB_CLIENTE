@@ -34,7 +34,7 @@ document.write(mostrar());*/
 /* Elaborar una función a la cual le enviemos tres enteros y muestre el menor.*/
 
 
-let mayor=parseInt(prompt("Introduce el primer número"));
+/*let mayor=parseInt(prompt("Introduce el primer número"));
 let menor=parseInt(prompt("Introduce el segundo número"));
 
 document.write(muestra(mayor,menor));
@@ -44,11 +44,84 @@ function muestra(mayor,menor){
   if(mayor>menor){
     res=menor;
   }else{
-    
+    res=mayor;
   }
   return res;
 
+}*/
+//Confeccionar una función a la cual le envíe tres enteros y
+// los muestre ordenados de menor a mayor. 
+/*let res;
+let a=(prompt("Introduce el número"));
+let b=(prompt("Introduce el número"));
+let c=(prompt("Introduce el número"));
+
+
+document.write(orden(a, b, c));
+
+function orden(a,b,c){
+  if(a!=b&&a!=c&&b!=c){
+    if(a<b){
+       if(a<c){
+          if(b<c){
+           res=a+" "+b+" "+c;
+          }else{
+           res=a+" "+c+" "+b;
+          }
+       }else{
+        if(b<a){
+        res=c+" "+a+" "+b;
+        }
+      }
+    }else{
+      if(b<c){
+      res=b+" "+a+" "+c;
+      }else{
+        res=c+" "+b+" "+a;  
+      }
+    }
+  }else{
+    res="hay algun numero igual";
+  }
+  return res;
+}*/
+/*VERSION LIBRO */
+
+function mostrarOrdenados(x1, x2, x3) {
+  if (x1 < x2 && x1 < x3) {
+      document.write(x1 + ' ');
+      if (x2 < x3) {
+          document.write(x2 + ' ' + x3);
+      } else {
+          document.write(x3 + ' ' + x2);
+      }
+  } else {
+      if (x2 < x3) {
+          document.write(x2 + ' ');
+          if (x1 < x3) {
+              document.write(x1 + ' ' + x3);
+          } else {
+              document.write(x3 + ' ' + x1);
+          }
+      } else {
+          document.write(x3 + ' ');
+          if (x1 < x2) {
+              document.write(x1 + ' ' + x2);
+          } else {
+              document.write(x2 + ' ' + x1);
+          }
+      }
+  }
 }
+
+
+let valor1 = parseInt(prompt('Ingrese primer valor:'));
+let valor2 = parseInt(prompt('Ingrese segundo valor:'));
+let valor3 = parseInt(prompt('Ingrese tercer valor:'));
+document.write('Los tres valores ingresados son ' + valor1 + ' ' + valor2 + ' ' + valor3 + '<br>');
+document.write('Los valores ordenados de menor a mayor son: ');
+mostrarOrdenados(valor1, valor2, valor3);
+
 
 /*averigua si una palabra es palindroma */
 
