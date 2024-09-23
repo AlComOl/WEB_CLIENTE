@@ -1,15 +1,24 @@
-let h2etiqueta=document.getElementsByh2TagName("h2");
+
+window.onload = function() {
+let etiquetaH2=document.getElementsByTagName("h2");//coge los h2 y todo lo que cuelga
 
 
-for(i=0;i<h2etiqueta.length;i++){
+for(let i=0;i<etiquetaH2.length;i++){//itera dentro del los h2
 
-    let parrafo= h2etiqueta[1];
+    let h2texto= etiquetaH2[i].textContent;//extrae y mete los h2 e.n el parrafo
+   
+    let nuevoParrafo = document.createElement("p");//creo un nuevo parrafo de texto p
 
-    document.write(parrafo);
+    var contenido = document.createTextNode(h2texto);//crea un nodo de tipo texto
+
+
+    nuevoParrafo.appendChild(contenido);
+
+    document.body.appendChild(nuevoParrafo);
+
 
 }
 
-let p=document.getElementsByTagName(p);
 
 
-
+}
