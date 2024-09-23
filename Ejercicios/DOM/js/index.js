@@ -12,4 +12,6 @@ var enlazan =document.getElementsByName(segundo[6]);
 alert(enlazan.length);
 /*Número de enlaces del tercer párrafo*/
 
+
+
 }
