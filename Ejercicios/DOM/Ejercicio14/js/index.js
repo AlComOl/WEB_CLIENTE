@@ -8,17 +8,33 @@
 */ 
 
 window.onload=function(){
-    let contenido=document.getElementsById("contenidos_");
-    for(i=0;i<contenido;i++){
-        contenido.
-
-    }
-
-
-console.log(contenido);
     
+       /* let contenido=document.getElementsById("contenidos");//cojo todo los Id contenidos
+        for(i=0;i<contenido;i++){//itero pasando por todos ellos
+             let parrafo=contenido.getElementsById("enlace_1");//meto en parrafo el Id enlace_1
+       
+         }
+
+         function omitir(parrafo){  
+            parrafo.onclick=
+        }*/
+
+    document.getElementById("enlace_1").onclick=omitir;
+
+
+    function omitir(){
+       var quitar =document.getElementById("contenidos_1");
+
+       if( quitar.style.display=='block'){
+            quitar.style.display='none';
+       }else{
+            quitar.style.display='block';
+       }
+       
+    
+     
+       
+    }
 }
-
-
 
 
