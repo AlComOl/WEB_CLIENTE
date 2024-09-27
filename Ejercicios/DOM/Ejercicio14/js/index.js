@@ -7,7 +7,7 @@
     Cuando una sección se oculte, debe cambiar el mensaje del enlace asociado (pista: propiedad innerHTML)
 */ 
 
-window.onload=function(){
+
     
        /* let contenido=document.getElementsById("contenidos");//cojo todo los Id contenidos
         for(i=0;i<contenido;i++){//itero pasando por todos ellos
@@ -19,9 +19,9 @@ window.onload=function(){
             parrafo.onclick=
         }*/
 
-    document.getElementById("enlace_1").onclick=omitir;
+document.getElementById("enlace_1").onclick=omitir;
 
-
+for(let i=0;i<document;i++){
     function omitir(){
        var quitar =document.getElementById("contenidos_1");
 
@@ -31,10 +31,17 @@ window.onload=function(){
             quitar.style.display='block';
        }
        
-    
+    }
      
        
-    }
+    
 }
 
 
+window.onload=function(){
+
+document.getElementById("contenidos").onclick=omitir;
+
+
+
+}

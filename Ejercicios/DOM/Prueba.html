@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- //  Manejadores de eventos como atributos XHTML -->
+    <!-- <input type="button" value="Pinchame y verás" onclick="alert('Gracias por pinchar');" />
+   -->
+
+    <!-- <div onclick="alert('Has pinchado con el ratón');" onmouseover="alert('Acabas de pasar el ratón por encima');">
+         Puedes pinchar sobre este elemento o simplemente pasar el ratón por encima
+    </div> -->
+
+    <!-- <body onload="alert('La página se ha cargado completamente');">
+        ...
+     </body> -->
+
+     <!-- Manejadores de eventos y variable this -->
+
+     <!-- PRIMERO SIN EL THIS -->
+     <!-- <div id="contenidos" style="width:150px; height:60px; border: 2px solid black;" 
+      onmouseover="document.getElementById('contenidos').style.borderColor='red';"
+      onmouseout="document.getElementById('contenidos').style.borderColor='black';"> -->
+
+        Sección de contenidos...
+        <!-- Se ve claramente que con el el this nos evitamos codigo y errores (nos evitamos volver a coger el elemento con el ID )  -->
+        <!-- CON EL THIS -->
+        <!-- <div id="contenidos" style="width:150px; height:60px; border: 2px solid black;" 
+        onmouseover="this.style.backgroundColor='red';"
+        onmouseout="this.style.backgroundColor='black';"> -->
+        <!-- </div> -->
+        <!-- Creación de elementos XHTML simples -->
+        <!-- crear y añadir a la página un nuevo elemento XHTML sencillo consta de cuatro pasos diferentes: -->
+         
+    <!-- Creación de un nodo de tipo Element que represente al elemento.
+    Creación de un nodo de tipo Text que represente el contenido del elemento.
+    Añadir el nodo Text como nodo hijo del nodo Element.
+    Añadir el nodo Element a la página, en forma de nodo hijo del nodo correspondiente al lugar en el que se quiere insertar el elemento. -->
+    <p id="provisional">Ana es un vampiro energetico </p>
+    
+    <script>
+      //Crear nodo de tipo Elemen 
+      //   var parrafo = document.createElement("p");
+      // //crear el nodo de tipo texto
+      //   var contenido=document.createTextNode("Hola mundo");
+      // //Añadir el nodo text como hijo del Nodo element
+      //   parrafo.appendChild("contenido");
+      // //Añadir el nodo element como nodo a la pagina
+      //   document.body.appendChild(parrafo);
+
+        // Eliminación de nodos
+
+        var parrafo = document.getElementById("provisional");
+          parrafo.parentNode.removeChild(parrafo);
+
+       
+    </script>
+    
+
+</body>
+</html>

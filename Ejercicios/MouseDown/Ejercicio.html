@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Elaborar un programa que muestre un div de color rojo.
+     Cuando se presione cambiar el color a amarillo y luego de soltar el botón del mouse volver a pintar de rojo. -->
+
+     <div style="width:200px;height:200px;background:red" id="cuadrado">
+
+     </div>
+
+     <script>
+
+        window.onload=function{
+
+        document.getElementById('cuadro1').addEventListener('mousedown',color1);
+        document.getElementById('cuadro2').addEventListener('mouseup', color2);
+
+        function color1() {
+            document.getElementById('cuadro1').div.backgroundColor = 'yellow';
+        }
+
+        function color2() {
+            document.getElementById('cuadro1').div.backgroundColor = 'red';
+        }
+    }
+
+     </script>
+    
+</body>
+</html>
