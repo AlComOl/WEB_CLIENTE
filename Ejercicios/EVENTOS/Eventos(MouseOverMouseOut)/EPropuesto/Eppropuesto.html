@@ -1,0 +1,50 @@
+<!-- Mostrar un elemento de tipo H1, luego cuando se ingrese con el mouse dentro del mismo cambiar el color a letra 
+roja y color de fondo amarillo, luego cuando se mueva la flecha del mouse fuera del elemento volver al color original.  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centrar Texto</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <h1 id="cambia1" class="text-center" style="color: blueviolet; background-color: chartreuse;">MouseOver & MouseOut</h1>
+
+<script>
+
+window.onload=function(){
+
+    document.getElementById('cambia1').addEventListener('mouseover',con_over);
+    document.getElementById('cambia1').addEventListener('mouseout',con_out);
+
+
+    function con_over(){
+
+    document.getElementById('cambia1').style.color ='red';
+    document.getElementById('cambia1').style.backgroundColor ='yellow';
+        
+    }
+
+    function con_out(){
+
+    document.getElementById('cambia1').style.color='blueviolet';
+    document.getElementById('cambia1').style.backgroundColor='chartreuse';
+
+    }
+    
+}
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

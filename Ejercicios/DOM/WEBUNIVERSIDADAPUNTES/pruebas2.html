@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="enlace" href="https://uniwebsidad.com/libros/javascript/capitulo-5/acceso-directo-a-los-atributos-xhtml">Enlace</a>
+      <!-- <img id="imagen" style="margin: 55px; border: 53px solid ; " src="./img/espana.png" /> -->
+      <img id="imagen" style="margin: 55px; border: 53px solid black;" src="./img/espana.png" />
+    
+    <script>
+        let enlace=document.getElementById("enlace");
+            alert(enlace.href);
+
+        let espana=document.getElementById("imagen");
+        espana.style.border="10px solid red"
+
+        // let espana = document.getElementById("imagen"); // Cambio de nombre a espana
+        // espana.style.border = "10px solid red"; // Cambia el borde a 10px y color rojo
+        
+        
+    </script>
+</body>
+</html>
