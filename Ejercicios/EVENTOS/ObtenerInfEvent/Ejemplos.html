@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div id="info"></div>
+
+    
+    <script>
+
+window.onload = function() {
+  document.onkeyup = muestraInformacion;
+  document.onkeypress = muestraInformacion;
+  document.onkeydown = muestraInformacion;
+}
+
+function muestraInformacion(elEvento) {
+  var evento = window.event || elEvento;
+
+  var mensaje = "Tipo de evento: " + evento.type + "<br>" +
+                "Propiedad keyCode: " + evento.keyCode + "<br>" +
+                "Propiedad charCode: " + evento.charCode + "<br>" +
+                "Carácter pulsado: " + String.fromCharCode(evento.charCode);
+
+  info.innerHTML += "<br>--------------------------------------<br>" + mensaje
+}
+
+
+        
+    </script>
+</body>
+</html>

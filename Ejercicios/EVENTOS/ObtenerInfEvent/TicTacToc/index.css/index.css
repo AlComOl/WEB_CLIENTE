@@ -1,0 +1,8 @@
+#tablero{
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* 3 columnas de 100px cada una */
+    grid-template-rows: repeat(3, 100px);    /* 3 filas de 100px cada una */
+    gap: 5px;                                /* Espacio entre las celdas */
+    justify-content: center;                 /* Centrar el tablero */
+    align-content: center;
+}
