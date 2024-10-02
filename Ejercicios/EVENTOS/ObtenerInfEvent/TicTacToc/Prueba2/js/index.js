@@ -2,7 +2,7 @@
 
 window.onload=function(){
 
-    console.log("Hola");
+let currentPlayer = "X";    
 
 const joc = document.getElementById('joc');//Selecione el Id y el guarde en la variable
 const aput = document.getElementById('apunt');// "   "     "     "     "    "     "     "
