@@ -1,0 +1,33 @@
+<!-- Confeccionar una página que permita seleccionar una pizza y la cantidad de unidades.
+Luego al presionar un botón calcular el importe a pagar.
+Utilizar un objeto de la clase SELECT para la selección de la pizza, pudiendo ser:
+Queso: $ 4.
+Jamón y queso: $ 6.
+Especial: $ 10.
+A la cantidad de pizzas cargarla en un objeto de la clase TEXT y en otro objeto de la clase TEXT mostrar
+el importe total a abonar.  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/E.27.2.js"></script> 
+  <title>Pizza</title>
+</head>
+<body>
+  <form>
+    <p>Cantidad de Pizzas</p>
+      <input  id="cantidad" min="0">
+    <p>Tipo de Pizza</p>
+    <select id="productos">
+      <option  value="4">Queso</option>
+      <option  value="6">Jamón y Queso</option>
+      <option  value="10">Especial</option>
+    </select>  
+    <p>Importe abonar :<input type="text" id="total"></p>
+  </form>
+ 
+</body>
+</html>
