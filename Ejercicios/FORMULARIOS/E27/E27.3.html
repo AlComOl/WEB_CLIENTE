@@ -1,0 +1,51 @@
+<!-- Confeccionar una página que permita tomar un examen múltiple choice. 
+Se debe mostrar una pregunta y seguidamente un objeto SELECT con las respuestas posibles.
+Al presionar un botón mostrar la cantidad de respuestas correctas e incorrectas
+(Disponer 4 preguntas y sus respectivos controles SELECT)  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/27.3.js"></script>
+    <title>Examen Multiple choice</title>
+</head>
+<body>
+<form>
+  
+    <p>¿Cuantos ciclos de grado superio relacionado con sitemas informaticos?</p>
+    <select id="asir" >
+    <option value="1">ASIR</option>
+    <option value="2">DAW</option>
+    <option value="3">DAM</option>
+    </select>
+   
+    <p>¿Cuantos ciclos de grado superio relacionado con programación web?</p>
+    <select id="daw">
+    <option value="1">ASIR</option>
+    <option value="2">DAW</option>
+    <option value="3">DAM</option>
+    </select>
+    <p>¿Cuantos ciclos de grado superio relacionado con programación multiplataforma?</p>
+    <select id="dam">
+    <option value="1">ASIR</option>
+    <option value="2">DAW</option>
+    <option value="3">DAM</option>
+    </select>
+    <br>
+    <br>
+   
+</form>
+<!-- //ponemos el type"Button"para poder capturar y ejecutar la funcion -->
+<p>ENVIAR<input type="button" id="mostrar"></input></p>
+
+<br>
+<p>Correctas<input type="text" id="c"></input></p>
+<br>
+<p>Incorrectas:<input type="text" id="i"></input></p>
+
+
+    
+</body>
+</html>
