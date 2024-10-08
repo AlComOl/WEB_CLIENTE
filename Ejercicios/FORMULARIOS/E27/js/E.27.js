@@ -3,9 +3,9 @@ window.onload = function () {
 };
 
 function getPrecio() {
-    // Obtén el select por su ID
+   // Toma el valor de la opción seleccionada en un menú desplegable (<select>).
     let seleccion = document.getElementById('select1');
-    // Actualiza los campos de texto con la selección actual  
-    document.getElementById('text3').value = seleccion.options[seleccion.selectedIndex].value; // Valor de la opción
+   // Coloca ese valor en un campo de texto que tiene el ID text3. 
+    document.getElementById('text3').value = seleccion.options[seleccion.selectedIndex].value;
 
 }
