@@ -1,0 +1,43 @@
+#container{
+    background-color:rgb(55, 55, 65);
+}
+
+
+#btn-ini{
+    background: linear-gradient(to right, #6f42c1, #28a745); /* Degradado de morado a verde */
+    border: none; /* Elimina el borde */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno (padding) del botón */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Cursor de mano */
+    border-radius: 15px; /* Bordes redondeados */
+    transition: background 0.3s ease-in-out; /* Efecto de transición */
+}
+
+#btn-add{
+    background: linear-gradient(to right, #6f42c1, #28a745); /* Degradado de morado a verde */
+    border-radius:15px; /* Bordes redondeados */
+
+
+}
+
+
+#juego{
+    display: none; /* Oculta el main inicialmente */
+    height: 100vh; /* Altura del main para que ocupe toda la ventana */
+    background-color:rgb(55, 55, 65); /* Color de fondo */
+    background-image: url('../assets/pngegg.png'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-size: contain; /* Ajusta la imagen para que quepa completamente en el contenedor */
+
+}
+
+#guiones {
+    font-size: 500%; /* Tamaño de fuente */
+    position: absolute; /* Posición absoluta para centrarlo */
+    top: 50%; /* Centrado vertical */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-10%, -50%); /* Ajuste para centrar el elemento */
+}
