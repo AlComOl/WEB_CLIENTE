@@ -13,6 +13,8 @@ window.onload=function(){
 let parrafo=document.querySelector('p');
 let input=document.querySelector('input');
 
+
+
 // input.addEventListener('change',(e)=>{
 //     console.log(e
 // );
@@ -20,11 +22,22 @@ let input=document.querySelector('input');
 
 input.addEventListener('change',probando);
 
-function probando(e){
+function probando(event){
 
-    console.log(e);
+parrafo.textContent=event.target.value;
 }
 
 
+let cuadrado=document.querySelector('.bloque')
+
+cuadrado.addEventListener('mouseover', colorCambia);
+// cuadrado.addEventListener('mouseleave', vuelveColor);
+
+function colorCambia(){
+    cuadrado.style.backgroundColor="yellow";
+}
+// function vuelveColor(){
+//     cuadrado.style.backgroundColor="yellow"
+// }
 
 }

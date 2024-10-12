@@ -7,7 +7,7 @@ var vidaAux;
 // var letra = "";
 var guiones = "";
 
-const palabras = ["MANDARINA", "NARANJA", "SANDIA", "ALBARICOQUE", "MANZANA", "AGUACATE"];
+const palabras = ["NARANJA", "NARANJA", "NARANJA", "NARANJA", "NARANJA", "NARANJA"];
 const lineaTeclado1 = ['Q','W','E','R','T','Y','U','I','O','P'];
 const lineaTeclado2 = ['A','S','D','F','G','H','J','K','L','Ñ'];
 const lineaTeclado3 = ['Z','X','C','V','B','N','M'];
@@ -79,7 +79,7 @@ function mostrarTeclado(){
     llenarTeclado(lineaTeclado3);
 }
 
- document.addEventListener('keypress',comprobarLetra);//ejecuta la funcion si prionamos la tecla del teclado
+ document.addEventListener('keypress',comprobarLetra);//ejecuta la funcion si presionamos la tecla del teclado
  document.addEventListener('click',comprobarLetra);//ejecuta la funcion si hacemos click en el teclado
 
  //funcion comprobar si la letra esta en la palabra elegida
@@ -88,8 +88,19 @@ function mostrarTeclado(){
 
     var letra= evento.key;
     if(evento.type=="click"){
+      let valor=evento.target.id//como el id es igual que el valor del boton(la letra), lo guardo en la variable
 
-        console.log("raton");
+        for (let i = 0; i < palabra.length; i++) {
+          if(palabra[i]==valor){
+            let p=document.getElementById('guiones');
+
+            p.innerText=valor;
+           
+          }else{
+            console.log("NO ESTA");
+          }
+            
+        }
 
     }else{
         
@@ -97,7 +108,7 @@ function mostrarTeclado(){
     }
 
 
-    console.log(letra);
+    
 
  }
 
