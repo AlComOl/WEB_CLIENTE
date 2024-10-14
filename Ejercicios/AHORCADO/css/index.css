@@ -47,3 +47,29 @@
     top: 85%;
     left: 10%;
   }
+
+
+#vidas{
+    position: absolute;
+    top: 20%;
+    left: 55%;
+    color:white;
+    display: flex;
+   
+
+}
+
+
+#errores{
+    position: absolute;
+    top: 0%;
+    left: 55%;
+    color:white;
+    display: flex;
+
+}
+#guiones{
+    position: absolute;
+    top: 40%;
+    left: 60%;
+}
