@@ -22,9 +22,13 @@
 }
 
 
+
+
+
+
 #juego{
     display: none; /* Oculta el main inicialmente */
-    height: 85vh; /* Altura del main para que ocupe toda la ventana */
+    height: 80vh; /* Altura del main para que ocupe toda la ventana */
     background-color:rgb(55, 55, 65); /* Color de fondo */
     background-image: url('../assets/pngegg.png'); /* Ruta de la imagen de fondo */
     background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
@@ -72,4 +76,20 @@
     position: absolute;
     top: 40%;
     left: 60%;
+}
+
+#reiniciar{
+    display: none;
+    position: absolute;
+    top:16%;
+    left:33%;
+}
+img{
+    height: 270px;
+    width: 120px;
+}
+
+#reiniciar>p{
+    color: white;
+    padding-top: 20px;
 }

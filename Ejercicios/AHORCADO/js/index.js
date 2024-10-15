@@ -2,10 +2,8 @@
 var palabra = "";
 var divActual;
 var botonLetra;
-var vidas = 5;
-
 var vidas="❤️❤️❤️❤️❤️"
-// var letra = "";
+var letrasRepes = [];
 var guiones = [];
 
 const palabras = ["ANA", "GEMA", "JOSE", "JULIO", "EMILIANO", "AMPARO"];
@@ -102,7 +100,7 @@ function mostrarTeclado(){
     llenarTeclado(lineaTeclado3);
 }
 
- document.addEventListener('keypress',comprobarLetra);//ejecuta la funcion si presionamos la tecla del teclado
+ document.addEventListener('keydown',comprobarLetra);//ejecuta la funcion si presionamos la tecla del teclado
  document.getElementById('letrasTeclado').addEventListener('click',comprobarLetra);//ejecuta la funcion si hacemos click en el teclado
 //hay que asignar el evento a un evento en concreto
 
@@ -114,67 +112,139 @@ function mostrarTeclado(){
  function comprobarLetra(evento){
     let valor;
     let encontrado=false;
+
+
     var letra= evento.key;
     if(evento.type==="click"){
-
+      
        valor=evento.target.id//como el id es igual que el valor del boton(la letra), lo guardo en la variable
+       comprobarLetrasRepes(valor);//covalormprobacion
        document.getElementById(valor).style.backgroundColor="blue";//pintar la letra que he selecionado
-    }else if(evento.type==="keypress"){
-
-        valor=evento.key//aqui capturamos el valor del la tecla
-        // document.getElementById(valor).style.backgroundColor="blue";Aqui en el teclado no va
+     
+       
+    }else if(evento.type==="keydown"){
+       
+        valor=evento.key.toUpperCase()//aqui capturamos el valor del la tecla
+        comprobarLetrasRepes(valor);
+        document.getElementById(valor).style.backgroundColor="red";
+        
+        
     } 
       
        
         let p=document.getElementById('guiones');//Asigno a la variable el elemento  id=guiones.
               for (let i = 0; i < palabra.length; i++) {
              
-                if(palabra[i].toUpperCase()===valor.toUpperCase()){
+                if(palabra[i].toUpperCase()===valor.toUpperCase()){//comprueba 
                  guiones[i]=valor.toUpperCase();
                  encontrado=true;
 
                 }
               
               }
-              if(encontrado==false){//si no encuentra el numero inserta un fallo
-//creariamos una funciono para manejar los fallos y las vidas
-                vidasFallos();
+              if(encontrado==false){//si no encuelo encuentra
+
+                vidasFallos(); //maneja dentro  de la funcion el fallo 
               }
-              p.innerText = guiones.join(" ");
+              p.innerText = guiones.join(" ");//lo concierte en cadena
+
+              if (encontrado==true) {
+              
+                verificarGanador();
+            }
 
               
               
 }
+
+
+function verificarGanador() {
+    // Unir guiones en una cadena
+    const palabraGanadora = guiones.join("");
+    
+    // Comparar con la palabra original
+    if (palabraGanadora === palabra) {
+        alert("¡Has ganado!");
+        window.location.href = "index.html";
+        // var fin=document.getElementById("juego");
+        // fin.parentNode.style.display="none"; 
+
+       
+
+        
+
+        
+    }
+}
+
+
+
 
 //Funcion para manejar las vidas y los fallos
 
 function vidasFallos(){
     //maneja los fallos
-
-       let nodoFallo=document.createTextNode("💩");//
-       document.getElementById("fallos").appendChild(nodoFallo);
+       var fallos=0;
+       let nodoFallo=document.createTextNode("💩");//agrego el nodo de texto en la variable
+       document.getElementById("fallos").appendChild(nodoFallo);//cojo el id, y meto el texto con appendchild
        
-       var vidaAux="";
+       
+       var vidaAux="";//creo la variable vacia
 
-       for (let i = 0; i < vidas.length-2; i++) {
+       for (let i = 0; i < vidas.length-2; i++) {//cada vez que itero quito un corazon
         vidaAux +=vidas[i];
        }
 
        vidas=vidaAux;
-    
 
         let aciertos=document.getElementById("aciertos");
-
         
-        aciertos.innerText=vidas;
+        aciertos.innerText=vidas; //el resultado a la variable con innertext
 
-
-
+         if(vidas==""){
         
-       
+           let gameOver=document.getElementById("reiniciar");
+           gameOver.style.display="block";
+//hay que mejorar porque la ultima letra no se be 
+           dejarDeEscuchar();
+
+
+         }   
+
+         
     
 
 }
+// Función para dejar de escuchar
+    function dejarDeEscuchar() {
+        document.removeEventListener("click", manejarClick);
+        document.removeEventListener("keydown", manejarTeclado);
+}
+
+
+
+
+
+
+//aviso de repeticion de letra
+        function comprobarLetrasRepes(valor){
+            
+
+            for (let i = 0; i<letrasRepes.length; i++) {
+              if (letrasRepes[i]===valor) {
+                alert("YA HAS INTRODUCIDO LA LETRA");
+              }
+               
+            }
+            letrasRepes.push(valor);
+
+         }
+
+
+
+
+
+
     
 
  
