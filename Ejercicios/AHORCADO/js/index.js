@@ -82,12 +82,6 @@ function llenarTeclado(teclado){
         divActual = document.getElementById("letrasTeclado");
         divActual.appendChild(botonLetra);// añade el "button", en el elemento div con id="letras"
     
-
-        
-
-        //Le añadimos Eventos a los botones
-        // botonLetra.addEventListener("click", comprobarLetra);
-        // botonLetra.addEventListener("click", mostrarVidas);
     }
       
 }
@@ -158,24 +152,27 @@ function mostrarTeclado(){
 }
 
 
-function verificarGanador() {
-    // Unir guiones en una cadena
-    const palabraGanadora = guiones.join("");
-    
-    // Comparar con la palabra original
-    if (palabraGanadora === palabra) {
-        alert("¡Has ganado!");
-        window.location.href = "index.html";
-        // var fin=document.getElementById("juego");
-        // fin.parentNode.style.display="none"; 
 
+}
+
+//aviso de repeticion de letra
+function comprobarLetrasRepes(valor){
+ desable=false;
+
+    for (let i = 0; i<letrasRepes.length; i++) {
+      if (letrasRepes[i]===valor) {
+       let des =document.getElementById(valor);
+        des.disabled=true;//deshabilita el boton
        
 
-        
-
-        
+      }
+       
     }
-}
+    letrasRepes.push(valor);
+
+ }
+
+ 
 
 
 
@@ -184,28 +181,23 @@ function verificarGanador() {
 
 function vidasFallos(){
     //maneja los fallos
-       var fallos=0;
-       let nodoFallo=document.createTextNode("💩");//agrego el nodo de texto en la variable
-       document.getElementById("fallos").appendChild(nodoFallo);//cojo el id, y meto el texto con appendchild
-       
-       
+    
+   
        var vidaAux="";//creo la variable vacia
-
-       for (let i = 0; i < vidas.length-2; i++) {//cada vez que itero quito un corazon
-        vidaAux +=vidas[i];
-       }
-
-       vidas=vidaAux;
-
+        for (let i = 0; i < vidas.length-2; i++) {//cada vez que itero quito un corazon
+                vidaAux +=vidas[i];
+        }
+        
+        vidas=vidaAux;
+        
         let aciertos=document.getElementById("aciertos");
         
         aciertos.innerText=vidas; //el resultado a la variable con innertext
-
+   
          if(vidas==""){
-        
            let gameOver=document.getElementById("reiniciar");
            gameOver.style.display="block";
-//hay que mejorar porque la ultima letra no se be 
+            //hay que mejorar porque la ultima letra no se be 
            dejarDeEscuchar();
 
 
@@ -219,26 +211,30 @@ function vidasFallos(){
     function dejarDeEscuchar() {
         document.removeEventListener("click", manejarClick);
         document.removeEventListener("keydown", manejarTeclado);
-}
+    }
 
 
-
-
-
-
-//aviso de repeticion de letra
-        function comprobarLetrasRepes(valor){
+    function verificarGanador() {
+        // Unir guiones en una cadena
+        const palabraGanadora = guiones.join("");
+        
+        // Comparar con la palabra original
+        if (palabraGanadora === palabra) {
+            alert("¡Has ganado!");
+            window.location.href = "index.html";
+            // var fin=document.getElementById("juego");
+            // fin.parentNode.style.display="none"; 
+    
+           
+    
             
+    
+            
+        }
 
-            for (let i = 0; i<letrasRepes.length; i++) {
-              if (letrasRepes[i]===valor) {
-                alert("YA HAS INTRODUCIDO LA LETRA");
-              }
-               
-            }
-            letrasRepes.push(valor);
 
-         }
+
+
 
 
 

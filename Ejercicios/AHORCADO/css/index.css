@@ -81,11 +81,11 @@
 #reiniciar{
     display: none;
     position: absolute;
-    top:16%;
-    left:33%;
+    top:10%;
+    left:34%;
 }
 img{
-    height: 270px;
+    height: 280px;
     width: 120px;
 }
 
