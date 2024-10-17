@@ -106,23 +106,24 @@ function mostrarTeclado(){
  function comprobarLetra(evento){
     let valor;
     let encontrado=false;
+    let repe=false;
 
 
     var letra= evento.key;
     if(evento.type==="click"){
       
        valor=evento.target.id//como el id es igual que el valor del boton(la letra), lo guardo en la variable
-       comprobarLetrasRepes(valor);//covalormprobacion
        document.getElementById(valor).style.backgroundColor="blue";//pintar la letra que he selecionado
-     
+         repe=comprobarLetrasRepes(valor);//covalormprobacion
        
     }else if(evento.type==="keydown"){
        
         valor=evento.key.toUpperCase()//aqui capturamos el valor del la tecla
-        comprobarLetrasRepes(valor);
+         repe=comprobarLetrasRepes(valor);
         document.getElementById(valor).style.backgroundColor="red";
         
-        
+            
+
     } 
       
        
@@ -136,14 +137,16 @@ function mostrarTeclado(){
                 }
               
               }
-              if(encontrado==false){//si no encuelo encuentra
+              console.log(encontrado);
+              console.log(repe);
+              if(encontrado==false&&repe==false){//si no encuelo encuentra
 
-                vidasFallos(); //maneja dentro  de la funcion el fallo 
+               vidasFallos(); //maneja dentro  de la funcion el fallo 
               }
               p.innerText = guiones.join(" ");//lo concierte en cadena
 
               if (encontrado==true) {
-              
+              console.log("hola");
                 verificarGanador();
             }
 
@@ -157,19 +160,20 @@ function mostrarTeclado(){
 
 //aviso de repeticion de letra
 function comprobarLetrasRepes(valor){
- desable=false;
+
+ let repe=false;
 
     for (let i = 0; i<letrasRepes.length; i++) {
       if (letrasRepes[i]===valor) {
        let des =document.getElementById(valor);
-        des.disabled=true;//deshabilita el boton
-       
-
+        // des.disabled=true;//deshabilita el boton
+       des.setAttribute("disabled",true);
+        repe=true;
       }
        
     }
     letrasRepes.push(valor);
-
+return repe
  }
 
  
@@ -203,7 +207,9 @@ function vidasFallos(){
 
          }   
 
-         
+            let empezar=document.getElementById("inicio");
+
+            empezar.pasaPantallaInicio();//da error 
     
 
 }
@@ -220,16 +226,23 @@ function vidasFallos(){
         
         // Comparar con la palabra original
         if (palabraGanadora === palabra) {
-            alert("¡Has ganado!");
-            window.location.href = "index.html";
+        //   let agarroid=document.getElementById("ganador"); 
+        //   agarroid.setAttribute("class","ganador");
+        document.querySelector(".ganar").style.display = "block";
+          //hacer el css 
+        //   document.removeEventListener("keydown", manejarTeclado);
+        //   let tipoNodo=document.createElement("h1");
+        //   let n=document.createTextNode("HAS GANADO");
+        //   tipoNodo.appendChild(n);
+        //   agarroid.appendChild(tipoNodo);
+        
+
+
+
+        //  n.innerText(g);
+            // window.location.href = "index.html";
             // var fin=document.getElementById("juego");
-            // fin.parentNode.style.display="none"; 
-    
-           
-    
-            
-    
-            
+            // fin.parentNode.style.display="none";     
         }
 
 
@@ -240,7 +253,7 @@ function vidasFallos(){
 
 
 
-
+    }
     
 
  
@@ -249,74 +262,3 @@ function vidasFallos(){
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
