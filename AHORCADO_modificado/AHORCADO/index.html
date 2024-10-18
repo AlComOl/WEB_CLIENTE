@@ -15,18 +15,25 @@
                 <button id="empezarJuego" class="btn btn-lg w-100">Inicio</button>
             </div>
         </div>
+        <div id="instrucciones">
+          <p>El juego del ahorcado consiste en adivinar una palabra oculta letra por letra. El jugador tiene 5 vidas, 
+            que disminuyen con cada intento fallido. Si el jugador adivina todas las letras antes de perder todas las vidas, gana.
+             Si pierde todas las vidas antes de completar la palabra, el juego termina.</p>
+        </div>
     </nav>
+   
     <main id="juego">
       <div id="reiniciar">
+        <h1>¡¡HAS PERDIDO!!</h1>
         <img src="./assets/muneco-ahorcado.jpg" alt="ahorcado"> 
         <br>    
         <button id="inicio" class="btn btn-secondary mt-5 ">REINICIAR JUEGO</button>
       </div>
 
-      <div class="ganar">
+      <div id="ganar" class="ganar">
          <h1>¡¡HAS GANADO!!</h1>
 
-         <button  class="btn btn-secondary w-50">REINICIAR JUEGO</button>
+         <button id="finganar" class="btn btn-secondary w-50">REINICIAR JUEGO</button>
       </div>
       <div id="vidas">
         <h1>VIDAS</h1><h2 id="aciertos"></h2>
@@ -34,14 +41,10 @@
       
 
       <div id="guiones"></div>
+
       <div id="letrasTeclado" class="container d-flex flex-wrap justify-content-center"></div>
       
       </div>
-        
-        
-
-
-
 
     </main>
    

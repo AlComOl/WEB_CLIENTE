@@ -5,7 +5,7 @@ var botonLetra;
 var vidas="❤️❤️❤️❤️❤️"
 var letrasRepes = [];
 var guiones = [];
-
+juegoTerminado=true;
 const palabras = ["ANA", "GEMA", "JOSE", "JULIO", "EMILIANO", "AMPARO"];
 const lineaTeclado1 = ['Q','W','E','R','T','Y','U','I','O','P'];
 const lineaTeclado2 = ['A','S','D','F','G','H','J','K','L','Ñ'];
@@ -50,17 +50,6 @@ function elegirPalabra(){
     palabra = palabras[(Math.floor(Math.random() * (palabras.length-0) + 0))];
     return palabra;
 }
-//Función que muestra las letras de cada palabra
-//he tenido que modificar esta funcion porque tenia que tratar guines como un array 
-//para ver los aciertos
-// function mostrarGuiones(){
-   
-//     guiones = "";
-//     for (let i=0; i<palabra.length; i++){
-//         guiones += "_ ";
-//     }
-//     document.getElementById("guiones").innerHTML = guiones;// Se introduce en el div con id="guiones" tantos guiones como tenga la palabra aleatoria elegida
-// }
 
 // Muestra los guiones
 function mostrarGuiones() {
@@ -103,13 +92,15 @@ function mostrarTeclado(){
 
 
  //funcion comprobar si la letra esta en la palabra elegida
+
  function comprobarLetra(evento){
     let valor;
     let encontrado=false;
     let repe=false;
-
-
     var letra= evento.key;
+    
+if(juegoTerminado=true){
+    
     if(evento.type==="click"){
       
        valor=evento.target.id//como el id es igual que el valor del boton(la letra), lo guardo en la variable
@@ -146,15 +137,15 @@ function mostrarTeclado(){
               p.innerText = guiones.join(" ");//lo concierte en cadena
 
               if (encontrado==true) {
-              console.log("hola");
+             
                 verificarGanador();
             }
 
               
               
-}
+    }
 
-
+ }
 
 }
 
@@ -184,67 +175,59 @@ return repe
 //Funcion para manejar las vidas y los fallos
 
 function vidasFallos(){
-    //maneja los fallos
-    
-   
+       let i=0;
+      
        var vidaAux="";//creo la variable vacia
+
+      
         for (let i = 0; i < vidas.length-2; i++) {//cada vez que itero quito un corazon
                 vidaAux +=vidas[i];
         }
-        
+      
         vidas=vidaAux;
         
         let aciertos=document.getElementById("aciertos");
         
         aciertos.innerText=vidas; //el resultado a la variable con innertext
+        
    
          if(vidas==""){
+          
            let gameOver=document.getElementById("reiniciar");
            gameOver.style.display="block";
+          
             //hay que mejorar porque la ultima letra no se be 
-           dejarDeEscuchar();
+        //    dejarDeEscuchar();
+
 
 
          }   
 
-            let empezar=document.getElementById("inicio");
-
-            empezar.pasaPantallaInicio();//da error 
+          
     
 
 }
+
 // Función para dejar de escuchar
-    function dejarDeEscuchar() {
-        document.removeEventListener("click", manejarClick);
-        document.removeEventListener("keydown", manejarTeclado);
-    }
+    // function dejarDeEscuchar() {
+    //     document.removeEventListener("click", manejarClick);
+    //     document.removeEventListener("keydown", manejarTeclado);
+    // }
 
 
     function verificarGanador() {
         // Unir guiones en una cadena
+        // juegoTerminado=false;
         const palabraGanadora = guiones.join("");
         
         // Comparar con la palabra original
         if (palabraGanadora === palabra) {
-        //   let agarroid=document.getElementById("ganador"); 
-        //   agarroid.setAttribute("class","ganador");
+         juegoTerminado=true;
         document.querySelector(".ganar").style.display = "block";
-          //hacer el css 
-        //   document.removeEventListener("keydown", manejarTeclado);
-        //   let tipoNodo=document.createElement("h1");
-        //   let n=document.createTextNode("HAS GANADO");
-        //   tipoNodo.appendChild(n);
-        //   agarroid.appendChild(tipoNodo);
-        
-
-
-
-        //  n.innerText(g);
-            // window.location.href = "index.html";
-            // var fin=document.getElementById("juego");
-            // fin.parentNode.style.display="none";     
+   
         }
 
+}
 
 
 
@@ -252,8 +235,7 @@ function vidasFallos(){
 
 
 
-
-    }
+    
     
 
  
