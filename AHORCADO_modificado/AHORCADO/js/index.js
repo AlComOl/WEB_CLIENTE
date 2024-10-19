@@ -5,13 +5,9 @@ var botonLetra;
 var vidas="❤️❤️❤️❤️❤️";
 var letrasRepes = [];
 var guiones = [];
+var juegoTerminado = false;
 
 
-// Codigo Nuevo
-
-    var juegoTerminado = false;
-
-// Codigo Nuevo
 
 
 const palabras = ["ANA", "GEMA", "JOSE", "JULIO", "EMILIANO", "AMPARO"];
@@ -58,12 +54,11 @@ function elegirPalabra(){
     palabra = palabras[(Math.floor(Math.random() * (palabras.length-0) + 0))];
     return palabra;
 }
-
+//Funcion mostrar guiones 
 function mostrarGuiones() {
     guiones = Array(palabra.length).fill("_"); // Inicializa un array de guiones
     document.getElementById("guiones").innerText = guiones.join(" "); // Se introduce en el div(join convierte el array en una cadena de texto)
 
-    //maneja las vidas  
 }
 //Funcion para mostrar el teclado en la pantalla
 function mostrarTeclado(){
@@ -91,10 +86,10 @@ function llenarTeclado(teclado){
 
  document.addEventListener('keydown',comprobarLetra);//ejecuta la funcion si presionamos la tecla del teclado
  document.getElementById('letrasTeclado').addEventListener('click',comprobarLetra);//ejecuta la funcion si hacemos click en el teclado
- document.getElementById("inicio").addEventListener('click',reiniciarJuego);
- document.getElementById("finganar").addEventListener("click",reiniciarJuego);
+ document.getElementById("inicio").addEventListener('click',reiniciarJuego);//ejecuta la funcion de reiniciar juego y cambiar la pantalla
+ document.getElementById("finganar").addEventListener("click",reiniciarJuego);//ejecuta cambio de pantalla cuando ganamos 
 
- //hay que asignar el evento a un evento en concreto
+
 
 
 
@@ -109,7 +104,6 @@ function llenarTeclado(teclado){
 
 
 
-    // Codigo Nuevo
 
     if (juegoTerminado == false) {
     
@@ -158,11 +152,7 @@ function llenarTeclado(teclado){
 
 
     }
-
-    // Codigo Nuevo
-
-   
-              
+          
 }
 
 //aviso de repeticion de letra
@@ -184,26 +174,8 @@ return repe
  }
 
 //Funcion para manejar las vidas y los fallos
-
 function vidasFallos(){
-       let i=0;
-
-       // Codigo Eliminado 
-
-        //juegoTerminado=true;
-
-        // Codigo Eliminado 
-
-       
        var vidaAux="";//creo la variable vacia
-
-    //   while(i<vidas.length-2&&juegoTerminado==true){
-    //     vidaAux +=vidas[i];  
-    //     if(vidaAux===""){
-    //         juegoTerminado=false; 
-    //     }
-    // }
-
         for (let i = 0; i < vidas.length-2; i++) {//cada vez que itero quito un corazon
                 vidaAux +=vidas[i];
         }
@@ -217,20 +189,14 @@ function vidasFallos(){
    
          if(vidas==""){
 
-            // Codigo Eliminado
-            //juegoTerminado=false;
-            // Codigo Eliminado
-            
-
-            // Codigo Nuevo
-            juegoTerminado=true;
-            // Codigo Nuevo
+           
+            juegoTerminado=true;//boleano para que no me cuente las vidas al terminar el juego 
+         
 
            let gameOver=document.getElementById("reiniciar");
-           gameOver.style.display="block";
+           gameOver.style.display="block";//stylo pantalla fin
           
-            //hay que mejorar porque la ultima letra no se be 
-        //    dejarDeEscuchar();
+       
 
 
 
@@ -242,25 +208,11 @@ function vidasFallos(){
 }
 
     function verificarGanador() {
-        // Unir guiones en una cadena
-
-        // Codigo Eliminado
-
-            // juegoTerminado=true;
-
-        // Codigo Eliminado
-        
+        // Unir guiones en una cadena  
         const palabraGanadora = guiones.join("");
         
         // Comparar con la palabra original
         if (palabraGanadora === palabra) {
-
-            // Codigo Eliminado
-
-            // juegoTerminado=false;
-
-            // Codigo Eliminado
-
             juegoTerminado = true;
             document.querySelector(".ganar").style.display = "block";
            

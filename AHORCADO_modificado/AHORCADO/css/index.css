@@ -3,7 +3,7 @@
 }
 
 
-#btn-ini{
+#btn-ini {
     background: linear-gradient(to right, #6f42c1, #28a745); /* Degradado de morado a verde */
     border: none; /* Elimina el borde */
     color: white; /* Color del texto */
@@ -12,6 +12,10 @@
     cursor: pointer; /* Cursor de mano */
     border-radius: 15px; /* Bordes redondeados */
     transition: background 0.3s ease-in-out; /* Efecto de transición */
+}
+
+#btn-ini:hover {
+    background: linear-gradient(to right, #28a745, #6f42c1); /* Intercambia los colores en el hover */
 }
 
 #btn-add{
@@ -102,6 +106,9 @@ img{
     align-items: center;
     text-align: center;
     padding-top: 300px;
+}
+small{
+    color: white;
 }
 
 
