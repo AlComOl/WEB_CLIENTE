@@ -89,8 +89,16 @@ function llenarTeclado(teclado){
  document.getElementById("inicio").addEventListener('click',reiniciarJuego);//ejecuta la funcion de reiniciar juego y cambiar la pantalla
  document.getElementById("finganar").addEventListener("click",reiniciarJuego);//ejecuta cambio de pantalla cuando ganamos 
 
+// Funcion que maneja los caracteres para que no pete
 
-
+function comprobarCaracter(evento){
+    esletra=false;
+    console.log(evento);
+    if(evento.keyCode >= 65 && evento.keyCode<=90){
+        esletra=true;
+    }
+    return esletra;
+}
 
 
 
@@ -102,25 +110,21 @@ function llenarTeclado(teclado){
     let repe=false;
     var letra= evento.key;
 
-
-
-
-    if (juegoTerminado == false) {
+    if (juegoTerminado == false && comprobarCaracter(evento)==true ) {// condición del boleano para no quitar vidas si el juego ha terminado
     
     
-        if(evento.type==="click"){
+        if(evento.type==="click"){//mouse
           
             valor=evento.target.id//como el id es igual que el valor del boton(la letra), lo guardo en la variable
             document.getElementById(valor).style.backgroundColor="blue";//pintar la letra que he selecionado
-              repe=comprobarLetrasRepes(valor);//covalormprobacion
+              repe=comprobarLetrasRepes(valor);//conprobar valor
             
-         }else if(evento.type==="keydown"){
+         }else if(evento.type==="keydown"){//teclado
             
              valor=evento.key.toUpperCase()//aqui capturamos el valor del la tecla
               repe=comprobarLetrasRepes(valor);
-             document.getElementById(valor).style.backgroundColor="red";
-             
-                 
+             document.getElementById(valor).style.backgroundColor="green";
+                  
      
          } 
            
@@ -135,8 +139,7 @@ function llenarTeclado(teclado){
                      }
                    
                    }
-                   console.log(encontrado);
-                   console.log(repe);
+              
                    if(encontrado==false&&repe==false){//si no encuelo encuentra
      
                     vidasFallos(); //maneja dentro  de la funcion el fallo 
@@ -144,7 +147,7 @@ function llenarTeclado(teclado){
                    p.innerText = guiones.join(" ");//lo concierte en cadena
      
                    if (encontrado==true) {
-                   console.log("hola");
+              
                      verificarGanador();
                  }
      
@@ -174,11 +177,11 @@ return repe
  }
 
 //Funcion para manejar las vidas y los fallos
-function vidasFallos(){
-       var vidaAux="";//creo la variable vacia
-        for (let i = 0; i < vidas.length-2; i++) {//cada vez que itero quito un corazon
-                vidaAux +=vidas[i];
-        }
+    function vidasFallos(){
+         var vidaAux="";//creo la variable vacia
+             for (let i = 0; i < vidas.length-2; i++) {//cada vez que itero quito un corazon
+                 vidaAux +=vidas[i];
+             }
       
         vidas=vidaAux;
         
@@ -202,9 +205,6 @@ function vidasFallos(){
 
          }   
 
-          
-    
-
 }
 
     function verificarGanador() {
@@ -221,7 +221,7 @@ function vidasFallos(){
 
     }
 
-
+//funcion para reiniciar el juego 
     function  reiniciarJuego(){
         juegoTerminado=false;
         vidas="❤️❤️❤️❤️❤️";
