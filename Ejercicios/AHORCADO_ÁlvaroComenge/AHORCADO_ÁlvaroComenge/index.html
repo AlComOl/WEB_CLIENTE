@@ -1,3 +1,22 @@
+<!-- 
+Alumno : Álvaro Comenge Oliver
+
+Fecha : 20-10-2024
+
+Centro: 2DAW IES Fuente San Luis 
+
+
+Utilizando el modelo de eventos DOM2, desarrollar una página web para jugar al ahorcado, según las siguientes características:
+
+    Mostrará un botón "Empezar juego" que seleccionará la palabra automáticamente de un array de palabras existente. Una vez seleccionada, el botón "Empezar juego" desparecerá.
+    Habrá acceso a información sobre las normas del juego.
+    Se mostrará una tabla/guiones/...  con tantas casillas como letras tenga la palabra.
+    Un input "Elije letra", o un teclado de letras, permitirá introducir la letra para adivinar la palabra y un botón, la tecla enter o el elemento del teclado de letras comprobará si la letra está en la palabra en cuyo caso la mostrará en su posición correcta. Si no se encuentra, muestra la primera letra de AHORCADO o disminuye el contador de vidas y así sucesivamente hasta completar la palabra o terminar ahorcado.
+    Cuando una letra no esté en la palabra se desactivará el botón de esa letra o aparecerá en un listado de letras erróneas o similar.
+    Cuando termina en cualquiera de los casos muestra el texto "Has ganado" o "Has perdido" y permite reiniciar el juego. -->
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,7 +52,7 @@
       </div>
 
       <div id="ganar" class="ganar">
-         <h1>¡¡HAS GANADO!!</h1>
+         <h1 class="visible">¡¡HAS GANADO!!</h1>
 
          <button id="finganar" class="btn btn-secondary w-50">REINICIAR JUEGO</button>
       </div>
@@ -43,7 +62,7 @@
 
 
 
-      
+            <!-- Boton -->
       <button type="button"id="btn-ini" class="btn btn-dark mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Instruciones Juego
       </button>
@@ -63,6 +82,8 @@
                 serie de guiones que representan cada letra de la palabra oculta. El jugador tiene 5 vidas representadas por
                 corazones, y cada vez que selecciona una letra incorrecta, pierde una vida. Si adivina todas las letras antes 
                 de quedarse sin vidas, gana el juego. Sin embargo, si pierde todas sus vidas, el juego termina.
+                Tanto si gana como si pierde, para continuar deberá presionar el boton de Reiniciar Juego.
+                Presionando F5 recargará el juego de nuevo. 
                 </placeholder>
             </div>
             <div class="modal-footer">

@@ -24,6 +24,7 @@ window.onload = function(){
 function inicio(){
     pasaPantallaInicio();
     elegirPalabra();
+    console.log("La palabra selecionada es: "+palabra);
     mostrarGuiones();
     mostrarTeclado();
   
@@ -53,7 +54,10 @@ function pasaPantallaInicio(){
 function elegirPalabra(){
     palabra = palabras[(Math.floor(Math.random() * (palabras.length-0) + 0))];
     return palabra;
+    
 }
+
+
 //Funcion mostrar guiones 
 function mostrarGuiones() {
     guiones = Array(palabra.length).fill("_"); // Inicializa un array de guiones

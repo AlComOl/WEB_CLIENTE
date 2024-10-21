@@ -3,7 +3,7 @@
 }
 
 
-#btn-ini{
+#btn-ini {
     background: linear-gradient(to right, #6f42c1, #28a745); /* Degradado de morado a verde */
     border: none; /* Elimina el borde */
     color: white; /* Color del texto */
@@ -14,17 +14,22 @@
     transition: background 0.3s ease-in-out; /* Efecto de transición */
 }
 
+#btn-ini:hover {
+    background: linear-gradient(to right, #28a745, #6f42c1); /* Intercambia los colores en el hover */
+}
+
 #btn-add{
     background: linear-gradient(to right, #6f42c1, #28a745); /* Degradado de morado a verde */
     border-radius:15px; /* Bordes redondeados */
-
-
 }
-
-
-
-
-
+#finganar{
+    background: linear-gradient(to right, #6f42c1, #28a745); /* Degradado de morado a verde */
+    border-radius:15px; /* Bordes redondeados */
+}
+#inicio{
+    background: linear-gradient(to right, #6f42c1, #28a745); /* Degradado de morado a verde */
+    border-radius:15px; /* Bordes redondeados */ 
+} 
 
 #juego{
     display: none; /* Oculta el main inicialmente */
@@ -41,18 +46,17 @@
 #guiones {
     font-size: 400%; /* Tamaño de fuente */
     position: absolute; /* Posición absoluta para centrarlo */
-    top: 50%; /* Centrado vertical */
-    left: 50%; /* Centrado horizontal */
+    top: 40%; /* Centrado vertical */
+    left: 60%; /* Centrado horizontal */
     transform: translate(-10%, -50%); /* Ajuste para centrar el elemento */
-    color: aliceblue;
+    color: white;
 }
 
 #letrasTeclado{
     position: absolute;
     top: 85%;
     left: 10%;
-  }
-
+}
 
 #vidas{
     position: absolute;
@@ -60,14 +64,6 @@
     left: 55%;
     color:white;
     display: flex;
-   
-
-}
-
-#guiones{
-    position: absolute;
-    top: 40%;
-    left: 60%;
 }
 
 #reiniciar{
@@ -76,18 +72,19 @@
     top:10%;
     left:34%;
 }
-img{
-    height: 280px;
-    width: 120px;
-}
-
 #reiniciar>p{
     color: white;
     padding-top: 20px;
 }
-
-
-
+img{
+    height: 280px;
+    width: 120px;
+    
+}
+h1{
+    color:white;
+    text-size-adjust: 30px;
+}
 .ganar{
     display: none;
     height: 100%;
@@ -102,6 +99,9 @@ img{
     align-items: center;
     text-align: center;
     padding-top: 300px;
+}
+small{
+    color: white;
 }
 
 
