@@ -120,6 +120,7 @@ function comprobarCaracter(evento){
         if(evento.type==="click"){//mouse
           
             valor=evento.target.id//como el id es igual que el valor del boton(la letra), lo guardo en la variable
+            evento.target.style.backgroundColor = "blue";
             document.getElementById(valor).style.backgroundColor="blue";//pintar la letra que he selecionado
               repe=comprobarLetrasRepes(valor);//conprobar valor
             

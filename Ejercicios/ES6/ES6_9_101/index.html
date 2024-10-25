@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script>
+  export function sumar(x, y) {
+     return x + y;
+  }
+
+  export function restar(x, y) {
+    return x - y;
+  }
+</script>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+    <!-- <script src="index.js"></script> -->
+</head>
+
+<body>
+
+    <script type="module">
+
+        import {sumar, restar} from './modulo1.js'; 
+        alert(sumar(3,8)); 
+        alert(restar(10,3));
+
+    </script>
+</body>
+
+</html>
