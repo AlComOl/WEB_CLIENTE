@@ -13,9 +13,40 @@ body{
 
 }
 
-#juego{
-    display: none;
-    background-color: aliceblue;
- 
+
+section{
+   
+    background-color:black;
+
 }
+
+#adminPanel5sets th  {
+    color: aliceblue;
+}
+#adminPanel3sets th{
+    color: aliceblue;
+}
+
+#displaySets5 {
+    color: aliceblue;
+    display:none;
+}
+#displaySets3 {
+    color: aliceblue;
+    display:none;
+}
+
+
+
+#sets5 h1{
+    color: aliceblue;
+  
+}
+#sets3 h1{
+    color: aliceblue;
+   
+}
+
+
+
 
