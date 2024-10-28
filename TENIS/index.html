@@ -26,25 +26,25 @@
         <div class="container my-2 bg-dark w-50 text-light p-2">
         <div class="row g-3 p-3">
             <div class="col-12">
-                <label for="inputAddress" class="form-label">Nombre del Torneo</label>
+                <label for="nomTorneo" class="form-label">Nombre del Torneo</label>
                 <input type="text" class="form-control" id="inputTorneo" placeholder="IES Fuente San Luis">
               </div>
             <div class="col-md-6">
-                <label for="validationDefault01" class="form-label">Nombre del Jugador 1</label>
-                <input type="text" class="form-control" id="jugador1" value="Moya" required>
+                <label for="nomJugadaor1" class="form-label">Nombre del Jugador 1</label>
+                <input type="text" class="form-control" id="inputJugador1" value="Moya" required>
               </div>
-              <div class="col-md-6 ">
-                <label for="validationDefault02" class="form-label">RANKING</label>
+              <!-- <div class="col-md-6 ">
+                <label for="valorRanking" class="form-label">RANKING</label>
                 <input type="text" class="form-control" id="ranKing2" value="" required>
-              </div>
+              </div> -->
               <div class="col-md-6">
-                <label for="validationDefault01" class="form-label">Nombre del Jugador 2</label>
-                <input type="text" class="form-control" id="jugador2" value="Carlos Alcaraz" required>
+                <label for="nomJugador2" class="form-label">Nombre del Jugador 2</label>
+                <input type="text" class="form-control" id="inputJugador2" value="Carlos Alcaraz" required>
               </div>
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                 <label for="validationDefault02" class="form-label">RANKING</label>
                 <input type="text" class="form-control" id="ranking2" value="" required>
-              </div>
+              </div> -->
           
            
            
@@ -52,14 +52,22 @@
               <label for="inputState" class="form-label">Pais jugador 1</label>
               <select id="pais1" class="form-select">
                 <option selected>ESPAÑA</option>
-                <option>...</option>
+                <option>FRANCIA</option>
+                <option>ITALIA</option>
+                <option>LUXENBURGO</option>
+                <option>JAPON</option>
               </select>
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">Pais jugador 2</label>
                 <select id="pais2" class="form-select">
                   <option selected>ESPAÑA</option>
-                  <option>...</option>
+                  <option>FIMLANDIA</option>
+                  <option>ITALIA</option>
+                  <option>NORUEGA</option>
+                  <option>ESTADO UNIDOS</option>
+                  <option>VENEZUELA</option>
+
                 </select>
               </div>
  <!-- Numero de sets a disputar -->
@@ -90,25 +98,25 @@
     <div class="container well" id="adminPanel3sets">
         <h1 class="text-center" id="torneoset3">TORNEO DE TENIS</h1>
         <div class="table-responsive">
-            <table class="table table-striped table-bordered centeredTable" id="adminTable3">
+            <table class="table table-striped table-bordered centeredTable" id="tablaSet3">
                 <tbody>
                     <tr>
                         <th class="col">Player</th>
-                        <th class="col" id="admin_set1head">Set 1</th>
-                        <th class="col" id="admin_set2head">Set 2</th>
-                        <th class="col" id="admin_set3head">Set 3</th>
+                        <th class="col" id="id_set1">Set 1</th>
+                        <th class="col" id="id_set2">Set 2</th>
+                        <th class="col" id="id_set3">Set 3</th>
                     </tr>
                     <tr>
                         <td id="admin_p1name">
-                            <h2 id="nombreJugador1"></h2>
+                         <h2 id="nomJugador1set3"></h2>
                         </td>
                         <td id="admin_p1set1"></td>
                         <td id="admin_p1set2"></td>
                         <td id="admin_p1set3"></td>
                     </tr>
                     <tr>
-                        <td id="admin_p2name">
-                            <h2 id="nombreJugador2"></h2>
+                        <td id="">
+                         <h2 id="nomJugador2set3"></h2>
                         </td>
                         <td id="admin_p2set1"></td>
                         <td id="admin_p2set2"></td>
@@ -118,6 +126,7 @@
             </table>
         </div>       
     </div>
+
 </section>
 
 <!-- Marcador de 5 sets -->
@@ -125,7 +134,7 @@
     <div class="container well" id="adminPanel5sets">
         <h1 class="text-center" id="torneoset5">TORNEO DE TENIS</h1>
         <div class="table-responsive">
-            <table class="table table-striped table-bordered centeredTable" id="adminTable5">
+            <table class="table table-striped table-bordered centeredTable" id="tablaSet5">
                 <tbody>
                     <tr>
                         <th class="col">Player</th>
@@ -137,7 +146,7 @@
                     </tr>
                     <tr>
                         <td id="admin_p1name">
-                            <input type="text" class="form-control" id="admin_p1nameInput" maxlength="46" placeholder="Player 1 name">
+                          <h2 id="nomJugador1set5"></h2>
                         </td>
                         <td id="admin_p1set1"></td>
                         <td id="admin_p1set2"></td>
@@ -147,7 +156,7 @@
                     </tr>
                     <tr>
                         <td id="admin_p2name">
-                            <input type="text" class="form-control" id="admin_p2nameInput" maxlength="46" placeholder="Player 2 name">
+                          <h2 id="nomJugador2set5"></h2>
                         </td>
                         <td id="admin_p2set1"></td>
                         <td id="admin_p2set2"></td>
@@ -159,7 +168,75 @@
             </table>
         </div>       
     </div>
+   
 </section>
+
+<!-- Panel para manejar los puntos y estadisticas de cada punto -->
+<main id="panelPuntos" class="container">
+   <!-- Marcador de Puntos Partido -->
+   <h5 class="text-center">PUNTUACION</h5>
+   <div class="d-flex justify-content-center align-items-center vh-10">
+     <table class="table text-center" id="marcadorJuego">
+       <thead>
+         <tr>
+           <th class="col-5 bg-success text-white" id="nomMarcador1">JUGADOR 1</th>
+           <th class="col-5 bg-danger text-white" id="nomMarcador2">JUGADOR 2</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td class="col-5 bg-success text-white">15</td>
+           <td class="col-5 bg-danger text-white">40</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+   
+  <div class="row justify-content-center">
+    <!-- Estadísticas del Jugador 1 -->
+    <div id="estadistica-P1" class="col-md-3">
+      <div>
+        <label><input type="radio" name="opcion_ace1" value="ace"> ACE</label><br>
+        <label><input type="radio" name="opcion_ace1" value="tiro-ganador"> TIRO GANADOR</label><br>
+        <label><input type="radio" name="opcion_servicio1" value="servicio1"> 1º SERVICIO</label><br>
+        <label><input type="radio" name="opcion_servicio1" value="servicio2"> 2º SERVICIO</label><br>
+        <label><input type="radio" name="opcion_servicio1" value="doble-falta"> DOBLE FALTA</label>
+      </div>
+    </div>
+
+    <!-- Foto del Jugador 1 -->
+    <div id="foto-P1" class="col-md-3 text-center">
+      <button class="btn">
+        <img src="./assets/Player2.png" alt="Foto de Jugador 1" id="f" class="img-fluid rounded-circle" style="max-width: 100px;">
+      </button>
+    </div>
+
+    <!-- Foto del Jugador 2 -->
+    <div id="foto-P2" class="col-md-3 text-center">
+      <button class="btn">
+        <img src="./assets/Player2.png" alt="Foto de Jugador 2"id="f" class="img-fluid rounded-circle" style="max-width: 100px;">
+      </button>
+    </div>
+
+    <!-- Estadísticas del Jugador 2 -->
+    <div id="estadistica-P2" class="col-md-3 ">
+      <div>
+        <label><input type="radio" name="opcion_ace2" value="ace"> ACE</label><br>
+        <label><input type="radio" name="opcion_ace2" value="tiro-ganador"> TIRO GANADOR</label><br>
+        <label><input type="radio" name="opcion_servicio2" value="servicio1"> 1º SERVICIO</label><br>
+        <label><input type="radio" name="opcion_servicio2" value="servicio2"> 2º SERVICIO</label><br>
+        <label><input type="radio" name="opcion_servicio2" value="doble-falta"> DOBLE FALTA</label>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+  
+
+
 
   </body>
 </html>

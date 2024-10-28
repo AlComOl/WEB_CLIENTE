@@ -41,29 +41,49 @@ window.onload=function(){
             contenedorSet3.style.display="none";
             contenedorSet5.style.display="block"; 
         }
+//Aparicion de las estadisticas y boton de los puntos
+        let panelPuntos=document.getElementById('panelPuntos');
+        if(set3.checked||set5.checked){
+            panelPuntos.style.display="block" 
+        }
+
 
 // Modifica en el encabezado el Nombre de torneo 
         let torneoset3=document.getElementById('torneoset3');
         torneoset3.textContent=document.getElementById('inputTorneo').value;
 
-        let torneset5=document.getElementById('torneoset5');
-        torneset5.textContent=document.getElementById('inputTorneo').value;
-//Hay que meter los campos de los datos de html de la misma forma que lo hacemos anterior mente
-        let jugador1=document.getElementById()
+        let torneoset5=document.getElementById('torneoset5');
+        torneoset5.textContent=document.getElementById('inputTorneo').value;
+//Modifica nombres de los jugadores
+        //set3
+        let nomJugador1=document.getElementById('nomJugador1set3');
+        nomJugador1.textContent=document.getElementById('inputJugador1').value;
+        nomJugador1.textContent=document.getElementById('inputJugador1').value;
+
+        let nomJugador2=document.getElementById('nomJugador2set3');
+        nomJugador2.textContent=document.getElementById('inputJugador2').value;
+        nomJugador1.textContent=document.getElementById('inputJugador1').value;
+        //set5
+        let nomJugador1set5=document.getElementById('nomJugador1set5');
+        nomJugador1set5.textContent=document.getElementById('inputJugador1').value;
+        nomJugador1.textContent=document.getElementById('inputJugador1').value;
+
+        let nomJugador2set5=document.getElementById('nomJugador2set5');
+        nomJugador2set5.textContent=document.getElementById('inputJugador2').value;
+        nomJugador1.textContent=document.getElementById('inputJugador1').value;
+        //nombre jugador1 marcador
+        let nomMarcador1=document.getElementById('nomMarcador1');
+        nomMarcador1.textContent=document.getElementById('inputJugador1').value;
+         //nombre jugador2 marcador
+         let nomMarcador2=document.getElementById('nomMarcador2');
+         nomMarcador2.textContent=document.getElementById('inputJugador2').value;
+ 
 
     }
 
 
 
 
-    // Creamos el objeto Jugador 
-
-
-    class Jugador1{
-
-         Ace = 0;
-
-    }
 
 }
 

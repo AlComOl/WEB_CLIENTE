@@ -10,6 +10,8 @@ body{
 
 #datos{
     display:block;
+    color:aliceblue;
+
 
 }
 
@@ -35,6 +37,26 @@ section{
     color: aliceblue;
     display:none;
 }
+#nomJugador1set3,
+#nomJugador2set3,
+#nomJugador1set5,
+#nomJugador2set5
+{
+    color: aliceblue;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.8),   
+    0 0 10px rgba(255, 255, 255, 0.6),  
+    0 0 15px rgba(255, 255, 255, 0.4), 
+    0 0 20px rgba(255, 255, 255, 0.2);  
+}
+
+#panelPuntos{
+    display: none;
+    margin-top: 80px;
+}
+
 
 
 
@@ -46,6 +68,57 @@ section{
     color: aliceblue;
    
 }
+
+#estadistica-P1{
+    color: aliceblue;
+    background-color:rgb(110, 99, 86);
+    text-align: left;
+    height: 150px;
+    width: 250px;
+ 
+}
+
+#estadistica-P2{
+    color: aliceblue;
+    background-color:rgb(110, 99, 86);
+    text-align: left;
+    height: 150px;
+    width: 250px;
+}
+.btn:active img {
+    height: 200px;
+    width: 250px; 
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+#marcadorJuego {
+    width: 30%; /* Ajusta el ancho de la tabla */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  }
+  
+  #marcadorJuego thead th {
+    font-size: 1.5rem; /* Tamaño de fuente más grande para los encabezados */
+    padding: 15px; /* Espaciado interno */
+  }
+  
+  #marcadorJuego tbody td {
+    font-size: 2rem; /* Tamaño de fuente más grande para los puntos */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .bg-success {
+    background-color: #28a745; /* Verde para Jugador 1 */
+  }
+  
+  .bg-danger {
+    background-color: #dc3545; /* Rojo para Jugador 2 */
+  }
+
+
+
 
 
 
