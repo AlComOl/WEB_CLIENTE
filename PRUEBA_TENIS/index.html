@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcador de Tenis</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+<div id="inicioPartido">
+    <h1>Configurar Partido de Tenis</h1>
+    <form id="configForm">
+        <label for="torneo">Nombre del Torneo:</label>
+        <input type="text" id="torneo" required>
+
+        <label for="ronda">Ronda:</label>
+        <input type="text" id="ronda" required>
+
+        <label for="jugador1">Jugador 1:</label>
+        <input type="text" id="jugador1" required>
+
+        <label for="ranking1">Ranking Jugador 1:</label>
+        <input type="number" id="ranking1" required>
+
+        <label for="jugador2">Jugador 2:</label>
+        <input type="text" id="jugador2" required>
+
+        <label for="ranking2">Ranking Jugador 2:</label>
+        <input type="number" id="ranking2" required>
+
+        <label for="sets">Número de sets a disputar:</label>
+        <select id="sets">
+            <option value="3">3 sets</option>
+            <option value="5">5 sets</option>
+        </select>
+
+        <button type="submit">Iniciar Partido</button>
+    </form>
+</div>
+
+<div id="marcadorPartido" style="display: none;">
+    <h2 id="torneoNombre"></h2>
+    <div id="marcador">
+        <h3 id="jugador1Nombre"></h3>
+        <button id="botonJugador1">Punto para Jugador 1</button>
+        <h3 id="jugador2Nombre"></h3>
+        <button id="botonJugador2">Punto para Jugador 2</button>
+    </div>
+    <div id="estadisticas">
+        <button id="verEstadisticas">Ver Estadísticas del Partido</button>
+    </div>
+</div>
+
+<script src="./index.js"></script>
+</body>
+</html>

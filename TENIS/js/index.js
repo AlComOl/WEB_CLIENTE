@@ -3,23 +3,6 @@ window.onload=function(){
 
     document.getElementById('empezarPartida').addEventListener('click',inicioJuego);
 
-
-   
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
 //elimina la pantalla del formulario de datos requeridos y muestra el marcador
     function inicioJuego(){
 
@@ -74,9 +57,11 @@ window.onload=function(){
         //nombre jugador1 marcador
         let nomMarcador1=document.getElementById('nomMarcador1');
         nomMarcador1.textContent=document.getElementById('inputJugador1').value;
-         //nombre jugador2 marcador
+        //nombre jugador2 marcador
          let nomMarcador2=document.getElementById('nomMarcador2');
          nomMarcador2.textContent=document.getElementById('inputJugador2').value;
+
+        //
  
 
     }

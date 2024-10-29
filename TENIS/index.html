@@ -28,23 +28,25 @@
             <div class="col-12">
                 <label for="nomTorneo" class="form-label">Nombre del Torneo</label>
                 <input type="text" class="form-control" id="inputTorneo" placeholder="IES Fuente San Luis">
+                <label for="ronda" class="form-label">Ronda</label>
+                <input type="text" class="form-control" id="inputRonda" placeholder="1">
               </div>
             <div class="col-md-6">
                 <label for="nomJugadaor1" class="form-label">Nombre del Jugador 1</label>
                 <input type="text" class="form-control" id="inputJugador1" value="Moya" required>
               </div>
-              <!-- <div class="col-md-6 ">
+              <div class="col-md-6 ">
                 <label for="valorRanking" class="form-label">RANKING</label>
                 <input type="text" class="form-control" id="ranKing2" value="" required>
-              </div> -->
+              </div>
               <div class="col-md-6">
                 <label for="nomJugador2" class="form-label">Nombre del Jugador 2</label>
                 <input type="text" class="form-control" id="inputJugador2" value="Carlos Alcaraz" required>
               </div>
-              <!-- <div class="col-md-6">
+              <div class="col-md-6">
                 <label for="validationDefault02" class="form-label">RANKING</label>
                 <input type="text" class="form-control" id="ranking2" value="" required>
-              </div> -->
+              </div>
           
            
            
@@ -175,7 +177,7 @@
 <main id="panelPuntos" class="container">
    <!-- Marcador de Puntos Partido -->
    <h5 class="text-center">PUNTUACION</h5>
-   <div class="d-flex justify-content-center align-items-center vh-10">
+   <div id="marcadorJuego-container" class="d-flex justify-content-center align-items-center vh-10">
      <table class="table text-center" id="marcadorJuego">
        <thead>
          <tr>
@@ -191,6 +193,7 @@
        </tbody>
      </table>
    </div>
+   
    
   <div class="row justify-content-center">
     <!-- Estadísticas del Jugador 1 -->

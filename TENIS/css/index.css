@@ -5,7 +5,8 @@
 }
 
 body{
-    background:url(../assets/bg.jpeg)
+    background:url(../assets/bg.jpeg);
+    font-family: Arial, sans-serif;
 }
 
 #datos{
@@ -45,11 +46,7 @@ section{
     color: aliceblue;
     text-align: center;
     font-weight: bold;
-    text-shadow: 
-    0 0 5px rgba(255, 255, 255, 0.8),   
-    0 0 10px rgba(255, 255, 255, 0.6),  
-    0 0 15px rgba(255, 255, 255, 0.4), 
-    0 0 20px rgba(255, 255, 255, 0.2);  
+    
 }
 
 #panelPuntos{
@@ -93,29 +90,62 @@ section{
 }
 
 
+/* Estilos específicos para el marcador */
+#marcadorJuego-container {
+    background-color: #1b1b1b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
 #marcadorJuego {
-    width: 30%; /* Ajusta el ancho de la tabla */
-    border-radius: 10px; /* Esquinas redondeadas */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  }
-  
-  #marcadorJuego thead th {
-    font-size: 1.5rem; /* Tamaño de fuente más grande para los encabezados */
-    padding: 15px; /* Espaciado interno */
-  }
-  
-  #marcadorJuego tbody td {
-    font-size: 2rem; /* Tamaño de fuente más grande para los puntos */
-    padding: 20px; /* Espaciado interno */
-  }
-  
-  .bg-success {
-    background-color: #28a745; /* Verde para Jugador 1 */
-  }
-  
-  .bg-danger {
-    background-color: #dc3545; /* Rojo para Jugador 2 */
-  }
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+}
+
+#marcadorJuego thead th {
+    background-color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#nomMarcador1 {
+    background-color: #4caf50; /* verde */
+    color: #fff;
+}
+
+#nomMarcador2 {
+    background-color: #f44336; /* rojo */
+    color: #fff;
+}
+
+#marcadorJuego tbody td {
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #444;
+    color: #fff;
+}
+
+/* Colores de puntaje */
+#marcadorJuego tbody td.bg-success {
+    background-color: #4caf50;
+}
+
+#marcadorJuego tbody td.bg-danger {
+    background-color: #f44336;
+}
+
+/* Centramos el título */
+h5.text-center {
+    font-size: 1.5em;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 
 
 
