@@ -9,21 +9,34 @@ window.onload=function(){
         var pInicio= document.getElementById("datos");//declara una variable introducciendo los elemetos(container) en ella
     
         pInicio.style.display="none";
-    
-        // Cogemos los id del ckeeckbox
-        let set3=document.getElementById('set3');
-        let set5=document.getElementById('set5');
-        // las secciones donde esta alojado la pantalla del marcador de 3 y 5 sets
-        let contenedorSet3=document.getElementById('displaySets3');
-        let contenedorSet5=document.getElementById('displaySets5');
-        // Si esta chequeado el 3 muestra pantalla del 3 y al contrario
-        if(set3.checked){
-            contenedorSet3.style.display="block";
-            contenedorSet5.style.display = "none"; 
-        }else if(set5.checked){
-            contenedorSet3.style.display="none";
-            contenedorSet5.style.display="block"; 
-        }
+// muestra la tabla de 3 o 5 sets
+        // let setsPartido=document.getElementById('setsPartido');
+        // let valorsetpartido=setsPartido.options[setsPartido.selectedIndex].value;
+        
+        // // Si esta chequeado el 3 muestra pantalla del 3 y al contrario
+        // if(valorsetpartido==="3"){//selecionar el select 
+        //     displaySets3.style.display="block";
+        //     displaySets5.style.display = "none"; 
+        //     console.log(valorsetpartido);
+        // }else if(valorsetpartido==="5"){
+        //     displaySets3.style.display="none";
+        //     displaySets5.style.display="block"; 
+        //     console.log(valorsetpartido+"set5");
+            
+        // } 
+//  ==>CODIGO ANTERIOR OPTIMIZADO CON LA FINCION FLECHA
+        let ElegirSet = () => {
+            let valorSeleccionado = setsPartido.options[setsPartido.selectedIndex].value;
+          if(valorSeleccionado === "3") 
+                 (displaySets3.style.display = "block", displaySets5.style.display = "none")
+            else (displaySets3.style.display = "none", displaySets5.style.display = "block");
+        };
+        ElegirSet();
+       
+
+// Llamar a la función de actualización al cargar la página
+
+
 //Aparicion de las estadisticas y boton de los puntos
         let panelPuntos=document.getElementById('panelPuntos');
         if(set3.checked||set5.checked){
@@ -62,6 +75,9 @@ window.onload=function(){
          nomMarcador2.textContent=document.getElementById('inputJugador2').value;
 
         //
+   
+
+
  
 
     }
