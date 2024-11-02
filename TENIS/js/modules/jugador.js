@@ -1,4 +1,7 @@
-import { nomJugador1 } from "./index.js";
+
+
+
+
 class Jugador{
 
     constructor(nombre,ranking){
@@ -6,10 +9,11 @@ class Jugador{
         this.ranking=ranking;
         this.punto=0;
         this.set=0;
-        this.acc=acc;
-
-
+        this.juego=0
 
     }
 
+
 }
+
+export {Jugador} ;

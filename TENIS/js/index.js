@@ -1,15 +1,20 @@
+import { Partido } from './modules/partido.js';
 
-// import { Partido } from './partido.js';
+
 
 window.onload=function(){
+  var selecionado;
+  var partido1;
   document.getElementById('empezarPartida').addEventListener('click',inicioJuego);
+//   document.getElementById('empezarPartida').addEventListener('click',inicioJuego);
+  
 
     function inicioJuego(){
 
 //elimina la pantalla del formulario de datos requeridos y muestra el marcador
 var pInicio= document.getElementById("datos");//declara una variable introducciendo los elemetos(container) en ella
         pInicio.style.display="none";
-//agreda los id a las variables 
+//agrego los id a las variables 
         let setsPartido=document.getElementById('setsPartido');//coje sets
         let panelPuntos=document.getElementById('panelPuntos');//coge el panel puntos
         let torneoset3=document.getElementById('torneoset3');//torneo a 3 0
@@ -29,8 +34,9 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             
         // } 
 //  ==>CODIGO ANTERIOR OPTIMIZADO CON LA FINCION FLECHA
-        let muestraPantallaJuego = () => {
+        let muestraPantallaJuego = () => {   
          let valorSeleccionado = setsPartido.options[setsPartido.selectedIndex].value;
+         selecionado=valorSeleccionado;
          let jugador1Nombre = document.getElementById('inputJugador1').value;
          let jugador2Nombre = document.getElementById('inputJugador2').value;
           if(valorSeleccionado === "3") {
@@ -48,9 +54,16 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
           if(valorSeleccionado === "3"||valorSeleccionado === "5"){//aparece el panel puntos
                 panelPuntos.style.display="block" 
             } 
+
+            let ranking1= document.getElementById('ranking1');
+            let ranking2= document.getElementById('ranking2');
+
+            partido1=new Partido(selecionado,jugador1Nombre,jugador2Nombre,ranking1,ranking2);
+            partido1.añadirASet(0);
         };
         muestraPantallaJuego();
-      
+        anotarPunto();
+    };  
 
 //Aparicion de las estadisticas y boton de los puntos
         // let panelPuntos=document.getElementById('panelPuntos');
@@ -112,17 +125,36 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
            
             
         // } 
-        Partido.añadirASet(sets);
+//setpartido,nombre1,nombre2,ranking1,ranking2
 
-  
+ let puntosJuego = ["0", "15", "30", "40", "VENT"];
 
+    
+
+    document.getElementById('puntoJugador1').addEventListener('click',anotarPunto);
+
+
+
+    function anotarPunto(evento){
+       let anotador =evento.target.id;
+       if(anotador==='puntoJugador1'){
+        for (let i = 0; i < puntosJuego.length; i++) {
+            if(puntosJuego[i]===){
+     
+            }
+       }
+   
+        
     }
 
+        
+        
+    }
+  
+
+   
 
 
 
 
-};
-
-// export {valorsetpartido};
-
+}
