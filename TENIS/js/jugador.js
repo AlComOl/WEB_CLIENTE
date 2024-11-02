@@ -1,3 +1,4 @@
+import { nomJugador1 } from "./index.js";
 class Jugador{
 
     constructor(nombre,ranking){
