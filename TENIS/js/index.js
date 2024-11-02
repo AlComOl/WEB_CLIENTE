@@ -1,3 +1,4 @@
+import { Jugador } from './modules/jugador.js';
 import { Partido } from './modules/partido.js';
 
 
@@ -6,7 +7,7 @@ window.onload=function(){
   var selecionado;
   var partido1;
   document.getElementById('empezarPartida').addEventListener('click',inicioJuego);
-//   document.getElementById('empezarPartida').addEventListener('click',inicioJuego);
+
   
 
     function inicioJuego(){
@@ -20,19 +21,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         let torneoset3=document.getElementById('torneoset3');//torneo a 3 0
         let torneoset5=document.getElementById('torneoset5');//a 5 
        
-        // let valorsetpartido=setsPartido.options[setsPartido.selectedIndex].value;
-        
-// Si selecionamos  3sets muestra pantalla del 3 y al contrario
-        // if(valorsetpartido==="3"){//selecionar el select 
-        //     displaySets3.style.display="block";
-        //     displaySets5.style.display = "none"; 
-          
-        // }else if(valorsetpartido==="5"){
-        //     displaySets3.style.display="none";
-        //     displaySets5.style.display="block"; 
-           
-            
-        // } 
+
 //  ==>CODIGO ANTERIOR OPTIMIZADO CON LA FINCION FLECHA
         let muestraPantallaJuego = () => {   
          let valorSeleccionado = setsPartido.options[setsPartido.selectedIndex].value;
@@ -62,99 +51,89 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             partido1.añadirASet(0);
         };
         muestraPantallaJuego();
-        anotarPunto();
+        
     };  
 
-//Aparicion de las estadisticas y boton de los puntos
-        // let panelPuntos=document.getElementById('panelPuntos');
-        // if(valorsetpartido === "3"||valorsetpartido === "5"){
-        //     panelPuntos.style.display="block" 
-        // }
 
 
-// Modifica en el encabezado el Nombre de torneo 
-        // let torneoset3=document.getElementById('torneoset3');
-        // torneoset3.textContent=document.getElementById('inputTorneo').value;
-
-        // let torneoset5=document.getElementById('torneoset5');
-        // torneoset5.textContent=document.getElementById('inputTorneo').value;
-
-//Modifica nombres de los jugadores
-        //set3
-        // let nomJugador1=document.getElementById('nomJugador1set3');
-        // nomJugador1.textContent=document.getElementById('inputJugador1').value;
-        // nomJugador1.textContent=document.getElementById('inputJugador1').value;
-
-        // let nomJugador2=document.getElementById('nomJugador2set3');
-        // nomJugador2.textContent=document.getElementById('inputJugador2').value;
-        // nomJugador1.textContent=document.getElementById('inputJugador1').value;
-        // //set5
-        // let nomJugador1set5=document.getElementById('nomJugador1set5');
-        // nomJugador1set5.textContent=document.getElementById('inputJugador1').value;
-        // nomJugador1.textContent=document.getElementById('inputJugador1').value;
-
-        // let nomJugador2set5=document.getElementById('nomJugador2set5');
-        // nomJugador2set5.textContent=document.getElementById('inputJugador2').value;
-        // nomJugador1.textContent=document.getElementById('inputJugador1').value;
-        // //nombre jugador1 marcador
-        // let nomMarcador1=document.getElementById('nomMarcador1');
-        // nomMarcador1.textContent=document.getElementById('inputJugador1').value;
-        // //nombre jugador2 marcador
-        //  let nomMarcador2=document.getElementById('nomMarcador2');
-        //  nomMarcador2.textContent=document.getElementById('inputJugador2').value;
-
-        //OPTIMIZADO
-        // const actualizarNombresJugadores = () => {
-        //     const jugador1Nombre = document.getElementById('inputJugador1').value;
-        //     const jugador2Nombre = document.getElementById('inputJugador2').value;
-        
-        //     // Actualizamos los nombres en todos los elementos necesarios
-        //     document.getElementById('nomJugador1set3').textContent = jugador1Nombre;
-        //     document.getElementById('nomJugador2set3').textContent = jugador2Nombre;
-        //     document.getElementById('nomJugador1set5').textContent = jugador1Nombre;
-        //     document.getElementById('nomJugador2set5').textContent = jugador2Nombre;
-        //     document.getElementById('nomMarcador1').textContent = jugador1Nombre;
-        //     document.getElementById('nomMarcador2').textContent = jugador2Nombre;
-        // };
-        // actualizarNombresJugadores();
-   
-        // if(valorsetpartido==="3"){//selecionar el select 
-             
-           
-        // }else if(valorsetpartido==="5"){
-           
-            
-        // } 
-//setpartido,nombre1,nombre2,ranking1,ranking2
-
- let puntosJuego = ["0", "15", "30", "40", "VENT"];
+ 
 
     
 
-    document.getElementById('puntoJugador1').addEventListener('click',anotarPunto);
+    // document.getElementById('puntoJugador1').addEventListener('click',anotarPunto);
 
 
 
-    function anotarPunto(evento){
-       let anotador =evento.target.id;
-       if(anotador==='puntoJugador1'){
-        for (let i = 0; i < puntosJuego.length; i++) {
-            if(puntosJuego[i]===){
+    // function anotarPunto(evento){
+    //    let anotador =evento.target.id;
+    //    if(anotador==='puntoJugador1'){
+    //     for (let i = 0; i < puntosJuego.length; i++) {
+    //         if(puntosJuego[i]===){
      
+    //         }
+    //    }
+   
+        
+    // }
+
+    // let anotador = evento.target.id;
+
+    // console.log(anotador);
+
+    let puntosJuego = ["0", "15", "30", "40", "VENT"];
+
+    document.getElementById('puntoJugador1').addEventListener('click', incrementarPuntaje);
+    document.getElementById('puntoJugador2').addEventListener('click', incrementarPuntaje);
+
+    function incrementarPuntaje(evento) {
+        const anotador = evento.target.id;
+
+        if (anotador === 'puntoJugador1') {
+            if (partido1.puntaje1 < puntosJuego.length - 1) {
+                partido1.puntaje1++;
             }
-       }
-   
-        
+        } else if (anotador === 'puntoJugador2') {
+            if (partido1.puntaje2 < puntosJuego.length - 1) {
+                partido1.puntaje2++;
+            }
+        }
+
+        // Actualizar el marcador
+        document.getElementById('puntajeJugador1').textContent = puntosJuego[partido1.puntaje1];
+        document.getElementById('puntajeJugador2').textContent = puntosJuego[partido1.puntaje2];
+
+        // Comprobar si hay un ganador
+        comprobarGanador();
     }
 
-        
-        
+    function comprobarGanador() {
+        if (partido1.puntaje1 >= 3 && partido1.puntaje1 >= partido1.puntaje2 + 2) {
+            // alert(`${partido1.jugador1.nombre} ha ganado el juego!`);
+            partido1.jugador1.juego += 1
+            let juegosJugador1=document.getElementById('juegosJugador1');
+            document.getElementById('juegosJugador1').textContent = partido1.jugador1.juego;
+           
+            reiniciarPuntaje();
+        } else if (partido1.puntaje2 >= 3 && partido1.puntaje2 >= partido1.puntaje1 + 2) {
+            partido1.jugador2.juego += 1
+            document.getElementById('juegosJugador2').textContent = partido1.jugador2.juego;
+           
+            reiniciarPuntaje();
+        }
     }
-  
 
-   
+    function reiniciarPuntaje() {
+        partido1.puntaje1 = 0; // Reiniciar puntaje jugador 1
+        partido1.puntaje2 = 0; // Reiniciar puntaje jugador 2
+        // Actualizar el DOM aquí si es necesario
+        document.getElementById('puntajeJugador1').textContent = "0";
+        document.getElementById('puntajeJugador2').textContent = "0";
+    }
+};
 
 
 
 
-}
+
+
+
