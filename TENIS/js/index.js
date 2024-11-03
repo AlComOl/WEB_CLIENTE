@@ -88,26 +88,33 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
     function incrementarPuntaje(evento) {
         const anotador = evento.target.id;
        
-        if (anotador === 'puntoJugador1') {
+        if (anotador === 'puntoJugador1'&& partido1.empate==false) {
             if (partido1.puntaje1 < puntosJuego.length - 1) {
                 partido1.puntaje1++;
+                
                
             }
            
-        } else if (anotador === 'puntoJugador2') {
+        } else if (anotador === 'puntoJugador2'&& partido1.empate==false) {
             if (partido1.puntaje2 < puntosJuego.length - 1) {
                 partido1.puntaje2++;
                 
             }
         }
+        console.log(partido1.puntaje1,partido1.puntaje2);
 //LLus//////////
-        if(partido1.puntaje1===4 && partido1.puntaje2===4){
-            if(anotador === 'puntoJugador1'){
+        if(partido1.puntaje1===3 && partido1.puntaje2===3){
+            console.log("empate a 40 ");
+            
+            if(anotador === 'puntoJugador1' && partido1.empate==true){
                 partido1.llusJugador1++;
-            }else{
-                partido1.llusJugador2++;
+                console.log(partido1.llusJugador1)
             }
-                  
+            else if(anotador === 'puntoJugador2' && partido1.empate==true){
+                partido1.llusJugador2++;
+                console.log(partido1.llusJugador2)
+            }
+            partido1.empate=true;
         }
 
         // Actualizar el marcador
@@ -119,28 +126,28 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
     }
 
     function comprobarGanador() {
-        if (partido1.puntaje1 >= 3 && partido1.puntaje1 >= partido1.puntaje2 + 2) {
+        if (partido1.puntaje1 === 4 && partido1.empate==false ) {
 // si los puntos del cons son mayor a 3(40) y puntos del puntaje1 son mayor al puntaje 2 + 2 de ahi la difenecia de 2
             partido1.jugador1.juego += 1;
             let juegosJugador1=document.getElementById('juegosJugador1');
             document.getElementById('juegosJugador1').textContent = partido1.jugador1.juego;
            
             reiniciarPuntaje();
-        } else if (partido1.puntaje2 >= 3 && partido1.puntaje2 >= partido1.puntaje1 + 2) {
+        } else if (partido1.puntaje2 === 4 && partido1.empate==false) {
             partido1.jugador2.juego += 1;
             document.getElementById('juegosJugador2').textContent = partido1.jugador2.juego;
          
             reiniciarPuntaje();
              //////////////comprobar llus////////// 
-         } else if (partido1.llusJugador1 >= partido1.llusJugador2 + 2){
+        }else if(partido1.llusJugador1>partido1.llusJugador2+1){
             partido1.jugador1.juego += 1;
-            document.getElementById('juegosJugador1').textContent = partido1.jugador1.juego;
-            reiniciarPuntaje();
-         } else if(partido1.llusJugador2 >= partido1.llusJugador1 + 2) {
+            ///renderizar el juego 
+            console.log("nuevo1");
+        }else if(partido1.llusJugador2>partido1.llusJugador1+1){
             partido1.jugador2.juego += 1;
-            document.getElementById('juegosJugador2').textContent = partido1.jugador2.juego;
-            reiniciarPuntaje();
-        } 
+            document.getElementById('')
+            console.log("nuevo2");
+        }
     
 
     function reiniciarPuntaje() {
