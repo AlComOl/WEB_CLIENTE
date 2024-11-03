@@ -9,6 +9,8 @@ class Partido{
        this.jugador2= new Jugador(nombre2,ranking2);
        this.puntaje1=0;
        this.puntaje2=0;
+       this.llusJugador1=0;
+       this.llusJugador2=0
        //cada set tiene su estadistica
         if(setpartido==="3"){
             this.sets= new Array(2);
