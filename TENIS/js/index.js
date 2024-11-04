@@ -80,7 +80,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
     // console.log(anotador);
 
-    let puntosJuego = ["0", "15", "30", "40", "VENT"];
+    let puntosJuego = ["0", "15", "30", "40","Ventaja"];
 
     document.getElementById('puntoJugador1').addEventListener('click', incrementarPuntaje);
     document.getElementById('puntoJugador2').addEventListener('click', incrementarPuntaje);
@@ -102,16 +102,22 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             }
         }
         console.log(partido1.puntaje1,partido1.puntaje2);
-//LLus//////////
+//deuge//////////
         if(partido1.puntaje1===3 && partido1.puntaje2===3){
             console.log("empate a 40 ");
             
             if(anotador === 'puntoJugador1' && partido1.empate==true){
                 partido1.llusJugador1++;
+                if(partido1.llusJugador1=="1"){
+                document.getElementById('deuce1').innerHTML="X";
+                }
                 console.log(partido1.llusJugador1)
             }
             else if(anotador === 'puntoJugador2' && partido1.empate==true){
                 partido1.llusJugador2++;
+                if(partido1.llusJugador2=="1"){
+                    document.getElementById('deuce2').innerHTML="X";
+                    }
                 console.log(partido1.llusJugador2)
             }
             partido1.empate=true;
@@ -127,35 +133,54 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
     function comprobarGanador() {
         if (partido1.puntaje1 === 4 && partido1.empate==false ) {
-// si los puntos del cons son mayor a 3(40) y puntos del puntaje1 son mayor al puntaje 2 + 2 de ahi la difenecia de 2
+// si los puntos del cons son mayor a 3(40) y boleano es true
             partido1.jugador1.juego += 1;
             let juegosJugador1=document.getElementById('juegosJugador1');
             document.getElementById('juegosJugador1').textContent = partido1.jugador1.juego;
-           
+           console.log("Hola no es un empate y gano1");
             reiniciarPuntaje();
         } else if (partido1.puntaje2 === 4 && partido1.empate==false) {
             partido1.jugador2.juego += 1;
             document.getElementById('juegosJugador2').textContent = partido1.jugador2.juego;
-         
+            console.log("Hola no es un empate y gano2");
             reiniciarPuntaje();
-             //////////////comprobar llus////////// 
+
+        
+//comprobar el deuge 
+      
         }else if(partido1.llusJugador1>partido1.llusJugador2+1){
-            partido1.jugador1.juego += 1;
-            ///renderizar el juego 
+            let juegomas1=partido1.jugador1.juego += 1;
+            document.getElementById('juegosJugador1').textContent=juegomas1;
+            reiniciarDesempate(); 
+            console.log( partido1.llusJugador1=0);
+            reiniciarPuntaje();
+            
             console.log("nuevo1");
         }else if(partido1.llusJugador2>partido1.llusJugador1+1){
-            partido1.jugador2.juego += 1;
-            document.getElementById('')
+            let juegomas2=partido1.jugador2.juego += 1;
+            document.getElementById('juegosJugador2').textContent=juegomas2;
+            reiniciarDesempate(); 
+            console.log( partido1.llusJugador2=0);
+            reiniciarPuntaje();
             console.log("nuevo2");
         }
     
-
+    }
     function reiniciarPuntaje() {
         partido1.puntaje1 = 0; // Reiniciar puntaje jugador 1
         partido1.puntaje2 = 0; // Reiniciar puntaje jugador 2
         // Actualizar el DOM aquí si es necesario
         document.getElementById('puntajeJugador1').textContent = "0";
         document.getElementById('puntajeJugador2').textContent = "0";
+        document.getElementById('deuce1').textContent = " ";
+        document.getElementById('deuce2').textContent = " ";
+    }
+
+    function reiniciarDesempate() {
+        // Restablece únicamente los puntajes de desempate sin tocar los puntajes generales
+        partido1.llusJugador1 = 0;
+        partido1.llusJugador2 = 0;
+        partido1.empate = false;
     }
 };
 
@@ -163,5 +188,5 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
 
 
-}
+
 

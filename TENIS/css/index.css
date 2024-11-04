@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  
 }
 
 body{
@@ -15,14 +16,17 @@ body{
 
 
 }
-
-
 section{
-   
     background-color:black;
-
 }
-
+#adminPanel5sets{
+    height: auto;
+    width: 50%;
+}
+#adminPanel3sets{
+    height: auto;
+    width: 50%;
+}
 #adminPanel5sets th  {
     color: aliceblue;
 }
@@ -51,7 +55,7 @@ section{
 
 #panelPuntos{
     display: none;
-    margin-top: 80px;
+    margin-top: 10px;
 }
 
 
@@ -86,39 +90,53 @@ section{
     height: 200px;
     width: 250px; 
     transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgb(25, 42, 32);
 }
 
 
 /* Estilos específicos para el marcador */
 #marcadorJuego-container {
-    background-color: #1b1b1b;
+    background-color: #30312f;
     padding: 20px;
+    width: 100%; /* Para ocupar todo el ancho de su contenedor padre */
+    max-width: 600px; /* Ancho máximo para el marcador */
+    height: auto; /* Ajuste automático de la altura según el contenido */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(250, 248, 248, 0.5);
+    margin: 0 auto; /* Centrado horizontal */
 }
 
-#marcadorJuego {
-    width: 100%;
-    max-width: 400px;
-    border-collapse: collapse;
-}
+
 
 #marcadorJuego thead th {
     background-color: #333;
     font-size: 1.2em;
     font-weight: bold;
     text-transform: uppercase;
+  
 }
+ 
 
 #nomMarcador1 {
+    
     background-color: #4caf50; /* verde */
     color: #fff;
 }
 
+
 #nomMarcador2 {
     background-color: #f44336; /* rojo */
     color: #fff;
+}
+
+#marcadorJuego {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Mantiene el tamaño de las celdas */
+    border-radius: 15px;
+    overflow: hidden;
+    
 }
 
 #marcadorJuego tbody td {
@@ -127,6 +145,7 @@ section{
     font-weight: bold;
     background-color: #444;
     color: #fff;
+    width: calc(100% / 6); /* Divide el ancho de la tabla entre el número de columnas */
 }
 
 /* Colores de puntaje */
