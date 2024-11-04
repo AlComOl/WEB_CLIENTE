@@ -87,7 +87,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
     function incrementarPuntaje(evento) {
         const anotador = evento.target.id;
-       
+//anotar puentos en el constructor       
         if (anotador === 'puntoJugador1'&& partido1.empate==false) {
             if (partido1.puntaje1 < puntosJuego.length - 1) {
                 partido1.puntaje1++;
@@ -102,7 +102,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             }
         }
         console.log(partido1.puntaje1,partido1.puntaje2);
-//deuge//////////
+//si hay empate a 40 o deuce
         if(partido1.puntaje1===3 && partido1.puntaje2===3){
             console.log("empate a 40 ");
             
@@ -123,7 +123,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             partido1.empate=true;
         }
 
-        // Actualizar el marcador
+ // Actualizar el marcador
         document.getElementById('puntajeJugador1').textContent = puntosJuego[partido1.puntaje1];
         document.getElementById('puntajeJugador2').textContent = puntosJuego[partido1.puntaje2];
 
@@ -157,15 +157,27 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             
             console.log("nuevo1");
         }else if(partido1.llusJugador2>partido1.llusJugador1+1){
-            let juegomas2=partido1.jugador2.juego += 1;
-            document.getElementById('juegosJugador2').textContent=juegomas2;
+           
+            document.getElementById('juegosJugador2').textContent=partido1.jugador2.juego += 1;
             reiniciarDesempate(); 
             console.log( partido1.llusJugador2=0);
             reiniciarPuntaje();
             console.log("nuevo2");
+        
+    //si hay hay 6 juegos sin empate a juegos(tiebreak) anotar set
+
+        }else if (partido1.jugador1.juego === 6 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
+            partido1.jugador1.set++;  // Incrementa el set del jugador 1
+            partido1.jugador1.juego=0;
+            document.getElementById('cont_p1set_1').textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
+            
+            console.log(partido1.jugador1.set);
+            console.log("juego"+partido1.jugador1.juego);
+            console.log("El jugador 1 ha ganado un set");
+
+            
         }
-    
-    }
+}
     function reiniciarPuntaje() {
         partido1.puntaje1 = 0; // Reiniciar puntaje jugador 1
         partido1.puntaje2 = 0; // Reiniciar puntaje jugador 2
