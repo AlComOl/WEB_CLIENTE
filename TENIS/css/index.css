@@ -19,29 +19,24 @@ body{
 section{
     background-color:black;
 }
-#adminPanel5sets{
-    height: auto;
-    width: 50%;
-}
+#adminPanel5sets,
 #adminPanel3sets{
     height: auto;
     width: 50%;
 }
-#adminPanel5sets th  {
-    color: aliceblue;
-}
+
+#adminPanel5sets th ,
 #adminPanel3sets th{
     color: aliceblue;
 }
 
-#displaySets5 {
-    color: aliceblue;
-    display:none;
-}
+
+#displaySets5,
 #displaySets3 {
     color: aliceblue;
     display:none;
 }
+
 #nomJugador1set3,
 #nomJugador2set3,
 #nomJugador1set5,
@@ -57,34 +52,27 @@ section{
     display: none;
     margin-top: 10px;
 }
-
-
-
-
-#sets5 h1{
+#marcadorJugador1Set1,
+#marcadorJugador2Set1{
     color: aliceblue;
-  
-}
-#sets3 h1{
-    color: aliceblue;
-   
 }
 
-#estadistica-P1{
+#admin_cont_jugador1_3sets>td,
+#admin_cont_jugador2_3sets>td,
+#admin_cont_jugador1_5sets>td,
+#admin_cont_jugador1_5sets>td{
+    color: aliceblue;
+}
+
+
+
+#estadistica-P1,#estadistica-P2{
     color: aliceblue;
     background-color:rgb(110, 99, 86);
     text-align: left;
     height: 150px;
     width: 250px;
  
-}
-
-#estadistica-P2{
-    color: aliceblue;
-    background-color:rgb(110, 99, 86);
-    text-align: left;
-    height: 150px;
-    width: 250px;
 }
 .btn:active img {
     height: 200px;
@@ -95,40 +83,6 @@ section{
 
 
 /* Estilos específicos para el marcador */
-#marcadorJuego-container {
-    background-color: #30312f;
-    padding: 20px;
-    width: 100%; /* Para ocupar todo el ancho de su contenedor padre */
-    max-width: 600px; /* Ancho máximo para el marcador */
-    height: auto; /* Ajuste automático de la altura según el contenido */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(250, 248, 248, 0.5);
-    margin: 0 auto; /* Centrado horizontal */
-}
-
-
-
-#marcadorJuego thead th {
-    background-color: #333;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-transform: uppercase;
-  
-}
- 
-
-#nomMarcador1 {
-    
-    background-color: #4caf50; /* verde */
-    color: #fff;
-}
-
-
-#nomMarcador2 {
-    background-color: #f44336; /* rojo */
-    color: #fff;
-}
-
 #marcadorJuego {
     width: 100%;
     max-width: 100%;
@@ -136,26 +90,10 @@ section{
     table-layout: fixed; /* Mantiene el tamaño de las celdas */
     border-radius: 15px;
     overflow: hidden;
-    
+    box-shadow:0px 0px 10px 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 60px;
 }
 
-#marcadorJuego tbody td {
-    padding: 15px;
-    font-size: 1.2em;
-    font-weight: bold;
-    background-color: #444;
-    color: #fff;
-    width: calc(100% / 6); /* Divide el ancho de la tabla entre el número de columnas */
-}
-
-/* Colores de puntaje */
-#marcadorJuego tbody td.bg-success {
-    background-color: #4caf50;
-}
-
-#marcadorJuego tbody td.bg-danger {
-    background-color: #f44336;
-}
 
 /* Centramos el título */
 h5.text-center {

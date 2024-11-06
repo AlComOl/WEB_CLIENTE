@@ -91,26 +91,26 @@
             <table class="table table-striped table-bordered centeredTable" id="tablaSet3">
                 <tbody>
                     <tr>
-                        <th class="col">Player</th>
+                        <th class="col">Jugador</th>
                         <th class="col" id="id_set1">Set 1</th>
                         <th class="col" id="id_set2">Set 2</th>
                         <th class="col" id="id_set3">Set 3</th>
                     </tr>
-                    <tr>
-                        <td id="admin_p1name">
+                    <tr id="admin_cont_jugador1_3sets">
+                        <td>
                          <h2 id="nomJugador1set3"></h2>
                         </td>
-                        <td id="cont_p1set_1">0</td>
-                        <td id="cont_p1set_2">0</td>
-                        <td id="cont_p1set_3">0</td>
+                        <td id="cont_jugador1_1set3">0</td>
+                        <td id="cont_jugador1_2set3">0</td>
+                        <td id="cont_jugador1_3set3">0</td>
                     </tr>
-                    <tr>
-                        <td id="">
+                    <tr id="admin_cont_jugador1_3sets">
+                        <td >
                          <h2 id="nomJugador2set3"></h2>
                         </td>
-                        <td id="admin_p2set1">0</td>
-                        <td id="admin_p2set2">0</td>
-                        <td id="admin_p2set3">0</td>
+                        <td id="cont_jugador2_1set3">0</td>
+                        <td id="cont_jugador2_2set3">0</td>
+                        <td id="cont_jugador2_3set3">0</td>
                     </tr>
                 </tbody>
             </table>
@@ -128,32 +128,32 @@
                 <tbody>
                   
                     <tr>
-                        <th class="col">Player</th>
+                        <th class="col">Jugador</th>
                         <th class="col" id="admin_set1head">Set 1</th>
                         <th class="col" id="admin_set2head">Set 2</th>
                         <th class="col" id="admin_set3head">Set 3</th>
                         <th class="col" id="admin_set4head">Set 4</th>
                         <th class="col" id="admin_set5head">Set 5</th>
                     </tr>
-                    <tr>
-                        <td id="admin_p1name">
+                    <tr id="admin_cont_jugador1_5sets">
+                        <td >
                           <h2 id="nomJugador1set5"></h2>
                         </td>
-                        <td id="admin_p1set1"></td>
-                        <td id="admin_p1set2"></td>
-                        <td id="admin_p1set3"></td>
-                        <td id="admin_p1set4"></td>
-                        <td id="admin_p1set5"></td>
+                        <td id="cont_jugador1_1set3"></td>
+                        <td id="cont_jugador1_2set3"></td>
+                        <td id="cont_jugador1_3set3"></td>
+                        <td id="cont_jugador1_4set3"></td>
+                        <td id="cont_jugador1_5set3"></td>
                     </tr>
-                    <tr>
-                        <td id="admin_p2name">
+                    <tr id="admin_cont_jugador2_5sets">
+                        <td >
                           <h2 id="nomJugador2set5"></h2>
                         </td>
-                        <td id="admin_p2set1"></td>
-                        <td id="admin_p2set2"></td>
-                        <td id="admin_p2set3"></td>
-                        <td id="admin_p2set4"></td>
-                        <td id="admin_p2set5"></td>
+                        <td id="cont_jugador2_1set5"></td>
+                        <td id="cont_jugador2_2set5"></td>
+                        <td id="cont_jugador2_3set5"></td>
+                        <td id="cont_jugador2_4set5"></td>
+                        <td id="cont_jugador1_5set5"></td>
                     </tr>
                 </tbody>
             </table>
@@ -208,7 +208,7 @@
     <!-- Estadísticas del Jugador 1 -->
     <div id="estadistica-P1" class="col-md-3">
       <div>
-        <label><input type="radio" name="opcion_ace1" value="ace"> ACE</label><br>
+        <label><input type="radio" id="opcion_ace1" value="ace"> ACE</label><br>
         <label><input type="radio" name="opcion_ace1" value="tiro-ganador"> TIRO GANADOR</label><br>
         <label><input type="radio" name="opcion_servicio1" value="servicio1"> 1º SERVICIO</label><br>
         <label><input type="radio" name="opcion_servicio1" value="servicio2"> 2º SERVICIO</label><br>
@@ -233,11 +233,11 @@
     <!-- Estadísticas del Jugador 2 -->
     <div id="estadistica-P2" class="col-md-3 ">
       <div>
-        <label><input type="radio" name="opcion_ace2" value="ace"> ACE</label><br>
-        <label><input type="radio" name="opcion_ace2" value="tiro-ganador"> TIRO GANADOR</label><br>
-        <label><input type="radio" name="opcion_servicio2" value="servicio1"> 1º SERVICIO</label><br>
-        <label><input type="radio" name="opcion_servicio2" value="servicio2"> 2º SERVICIO</label><br>
-        <label><input type="radio" name="opcion_servicio2" value="doble-falta"> DOBLE FALTA</label>
+        <label><input type="radio" id="ace2" name="opcion_ace2" value="ace"> ACE</label><br>
+        <label><input type="radio" id="tiro-ganador" name="opcion_ace2" value="tiro-ganador"> TIRO GANADOR</label><br>
+        <label><input type="radio" id="servicio1" name="opcion_servicio2" value="servicio1"> 1º SERVICIO</label><br>
+        <label><input type="radio" id="servicio2" name="opcion_servicio2" value="servicio2"> 2º SERVICIO</label><br>
+        <label><input type="radio" id="doble-falta" name="opcion_servicio2" value="doble-falta"> DOBLE FALTA</label>
       </div>
     </div>
   </div>

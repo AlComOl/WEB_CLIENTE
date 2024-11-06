@@ -48,37 +48,14 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             let ranking2= document.getElementById('ranking2');
 
             partido1=new Partido(selecionado,jugador1Nombre,jugador2Nombre,ranking1,ranking2);
-            partido1.añadirASet(0);
+            //creamos las estadisticas del set instanciando un objeto de set con la funcion
+             partido1.crearSet(0);
         };
         muestraPantallaJuego();
         
     };  
 
 
-
- 
-
-    
-
-    // document.getElementById('puntoJugador1').addEventListener('click',anotarPunto);
-
-
-
-    // function anotarPunto(evento){
-    //    let anotador =evento.target.id;
-    //    if(anotador==='puntoJugador1'){
-    //     for (let i = 0; i < puntosJuego.length; i++) {
-    //         if(puntosJuego[i]===){
-     
-    //         }
-    //    }
-   
-        
-    // }
-
-    // let anotador = evento.target.id;
-
-    // console.log(anotador);
 
     let puntosJuego = ["0", "15", "30", "40","Ventaja"];
 
@@ -92,6 +69,11 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             if (partido1.puntaje1 < puntosJuego.length - 1) {
                 partido1.puntaje1++;
                 
+                if(document.getElementById('opcion_ace1').checked){
+                    partido1.sets[partido1.indexSets].acc++;
+                }
+                //hacer con todas los atributos de set lo mismo para
+                //que sean guardados en instancia de la clase set
                
             }
            
@@ -103,10 +85,10 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         }
         console.log(partido1.puntaje1,partido1.puntaje2);
 //si hay empate a 40 o deuce
-        if(partido1.puntaje1===3 && partido1.puntaje2===3){
+        if(partido1.puntaje1===3 && partido1.puntaje2===3){//empate a puntos
             console.log("empate a 40 ");
             
-            if(anotador === 'puntoJugador1' && partido1.empate==true){
+            if(anotador === 'puntoJugador1' && partido1.empate==true){//solo entraria si estubieramos en deuge por el boleano a true
                 partido1.llusJugador1++;
                 if(partido1.llusJugador1=="1"){
                 document.getElementById('deuce1').innerHTML="X";
@@ -168,9 +150,13 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
         }else if (partido1.jugador1.juego === 6 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
             partido1.jugador1.set++;  // Incrementa el set del jugador 1
-            partido1.jugador1.juego=0;
-            document.getElementById('cont_p1set_1').textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
-            
+            partido1.jugador1.juego=0; 
+             console.log(partido1.setpartido);
+
+
+            document.getElementById('cont_jugador1_'+(partido1.indexSets+1)+'set'+partido1.setpartido).textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
+          //hacer un if else que coja el 5 o el 3 
+            partido1.indexSets++;
             console.log(partido1.jugador1.set);
             console.log("juego"+partido1.jugador1.juego);
             console.log("El jugador 1 ha ganado un set");
