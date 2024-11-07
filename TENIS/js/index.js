@@ -146,24 +146,54 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             reiniciarPuntaje();
             console.log("nuevo2");
         
-    //si hay hay 6 juegos sin empate a juegos(tiebreak) anotar set
+    //si hay hay 6 juegos del jugador 1 sin empate a juegos(tiebreak) anotar set
 
-        }else if (partido1.jugador1.juego === 6 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
+        }else if (partido1.jugador1.juego === 5&&partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
             partido1.jugador1.set++;  // Incrementa el set del jugador 1
             partido1.jugador1.juego=0; 
-             console.log(partido1.setpartido);
-
-
-            document.getElementById('cont_jugador1_'+(partido1.indexSets+1)+'set'+partido1.setpartido).textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
-          //hacer un if else que coja el 5 o el 3 
+           
+              //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
+             if(selecionado === "3"){
+                document.getElementById('cont_jugador1_'+(partido1.indexSets+1)+'set3').textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
+                if(partido1.jugador1.set===3){
+                    console.log("caundo ya tengo 3 = "+partido1.jugador1.set);
+                        alert('LA FUMADA HA TERMINADO');
+                }
+             }else if(selecionado === "5"){
+                document.getElementById('cont_jugador1_'+(partido1.indexSets+1)+'set5').textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
+                if(partido1.set===5){
+                    alert('LA FUMADA HA TERMINADO');
+                 }
+             }
+             //indice para cambiar el id a renderizar
             partido1.indexSets++;
-            console.log(partido1.jugador1.set);
-            console.log("juego"+partido1.jugador1.juego);
-            console.log("El jugador 1 ha ganado un set");
 
-            
+
+//si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set
+        }else if (partido1.jugador2.juego === 5&&partido1.puntaje2===3 && partido1.jugador2.juego >= partido1.jugador1.juego + 2) {
+            partido1.jugador2.set++;  // Incrementa el set del jugador 1
+            partido1.jugador2.juego=0; 
+              //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
+             if(selecionado === "3"){
+                document.getElementById('cont_jugador2_'+(partido1.indexSets+1)+'set3').textContent = partido1.jugador2.set;  // Muestra el nuevo valor del set en el marcador
+                if(partido1.jugador2.set===3){
+                    console.log("caundo ya tengo 3 = "+partido1.jugador2.set);
+                        alert('LA FUMADA HA TERMINADO cuando tengo 3 sets');
+                }
+                 
+             
+             }else if(selecionado === "5"){
+                document.getElementById('cont_jugador2_'+(partido1.indexSets+1)+'set5').textContent = partido1.jugador2.set;  // Muestra el nuevo valor del set en el marcador
+                if(partido1.jugador2.set===5){
+                    console.log("caundo ya tengo 5 = "+partido1.jugador1.set);
+                        alert('LA FUMADA HA TERMINADO con 5 sets');
+                }
+             }
+             //indice para cambiar el id a renderizar
+            partido1.indexSets++;
         }
 }
+
     function reiniciarPuntaje() {
         partido1.puntaje1 = 0; // Reiniciar puntaje jugador 1
         partido1.puntaje2 = 0; // Reiniciar puntaje jugador 2
@@ -180,6 +210,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         partido1.llusJugador2 = 0;
         partido1.empate = false;
     }
+
 };
 
 

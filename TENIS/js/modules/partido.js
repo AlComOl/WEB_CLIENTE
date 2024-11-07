@@ -1,8 +1,5 @@
 import { Jugador } from "./jugador.js";
 import { Set } from "./set.js";
-
-
-
 class Partido{
     constructor(setpart,nombre1,nombre2,ranking1,ranking2){
        this.jugador1= new Jugador(nombre1,ranking1);
