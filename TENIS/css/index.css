@@ -104,9 +104,22 @@ h5.text-center {
 }
 
 
+/*VENTANA MODAL */
+.modal{
+    display: none;
+    flex: auto;
+    height: 300px;
+    width: 200px;
+    background-color: white;
 
+}
+.modal-body{
 
+}
+.modal>tr{
+background-color: burlywood;
 
-
-
-
+}
+.modal>tr{
+    color: black;
+}

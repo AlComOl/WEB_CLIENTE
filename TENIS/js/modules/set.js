@@ -1,10 +1,11 @@
 class Set{
     ///se podirallamar estadistica
-    constructor(acc,servicio1,servicio2,dd,tieBreak){
+    constructor(acc,tg,servicio1,servicio2,df,tieBreak){
         this.acc=acc;
+        this.tganador=tg;
         this.servicio1=servicio1;
         this.servicio2=servicio2;
-        this.dd=dd;
+        this.df=df;
         this.tieBreak=tieBreak;
     }
 }

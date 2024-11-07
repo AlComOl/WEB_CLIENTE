@@ -68,9 +68,22 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         if (anotador === 'puntoJugador1'&& partido1.empate==false) {
             if (partido1.puntaje1 < puntosJuego.length - 1) {
                 partido1.puntaje1++;
-                
-                if(document.getElementById('opcion_ace1').checked){
+// guardo estadisticas dentro de set
+
+                if(document.getElementById('opcion1_ace1').checked){
                     partido1.sets[partido1.indexSets].acc++;
+                }
+                if(document.getElementById('opcion1_tiro_ganador').checked){
+                    partido1.sets[partido1.indexSets].tg++;
+                }
+                if(document.getElementById('opcion1_servicio1').checked){
+                    partido1.sets[partido1.indexSets].servicio1++;
+                }
+                if(document.getElementById('opcion1_servicio2').checked){
+                    partido1.sets[partido1.indexSets].servicio2++;
+                }
+                if(document.getElementById('opcion1_dobleFalta').checked){
+                    partido1.sets[partido1.indexSets].df++;
                 }
                 //hacer con todas los atributos de set lo mismo para
                 //que sean guardados en instancia de la clase set
@@ -150,6 +163,8 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
         }else if (partido1.jugador1.juego === 5&&partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
             partido1.jugador1.set++;  // Incrementa el set del jugador 1
+//sacamos por pantalla estadisticas
+            muestraModalEstadisticas();
             partido1.jugador1.juego=0; 
            
               //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
@@ -167,7 +182,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
              }
              //indice para cambiar el id a renderizar
             partido1.indexSets++;
-
+            
 
 //si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set
         }else if (partido1.jugador2.juego === 5&&partido1.puntaje2===3 && partido1.jugador2.juego >= partido1.jugador1.juego + 2) {
@@ -177,7 +192,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
              if(selecionado === "3"){
                 document.getElementById('cont_jugador2_'+(partido1.indexSets+1)+'set3').textContent = partido1.jugador2.set;  // Muestra el nuevo valor del set en el marcador
                 if(partido1.jugador2.set===3){
-                    console.log("caundo ya tengo 3 = "+partido1.jugador2.set);
+                    console.log("caundo ya tengo 3 = "+partido1.jugador1.set);
                         alert('LA FUMADA HA TERMINADO cuando tengo 3 sets');
                 }
                  
@@ -211,11 +226,26 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         partido1.empate = false;
     }
 
+
+    // modal
+//primero se habre si terminamos el set 
+let muestraModalEstadisticas = () => { 
+
+if(partido1.jugador1.juego===5 || partido1.jugador2.juego===5){
+
+    document.getElementById('idModal').style='display:block';
+    
+}
+
 };
 
+// Si el usuario hace clic fuera de la ventana, se cierra.
+window.addEventListener("click", function(event) {
+    // Verifica si el objetivo del clic es el botón de cerrar
+    if (event.target === document.getElementById('idcerrar')) {
+        // Cambia el estilo del modal para ocultarlo
+        document.getElementById('idModal').style.display = "none";
+    }
+});
 
-
-
-
-
-
+}

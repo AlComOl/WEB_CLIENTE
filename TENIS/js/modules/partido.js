@@ -17,8 +17,15 @@ class Partido{
         }else if(setpart==="5"){
             this.sets= new Array(4);
         }
+
+         // Inicializar el array con instancias de Set
+         const numberOfSets = setpart === "3" ? 3 : 5; 
+         this.sets = Array.from({ length: numberOfSets }, () => new Set());
+     
         
     }
+
+    
     
    crearSet() {
         let nuevoSet=new Set();//instancia de set(estadisticas)
@@ -27,6 +34,7 @@ class Partido{
     }
 
     
-}
+    }
+
 
 export { Partido };

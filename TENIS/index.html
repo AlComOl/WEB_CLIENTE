@@ -208,11 +208,11 @@
     <!-- Estadísticas del Jugador 1 -->
     <div id="estadistica-P1" class="col-md-3">
       <div>
-        <label><input type="radio" id="opcion_ace1" value="ace"> ACE</label><br>
-        <label><input type="radio" name="opcion_ace1" value="tiro-ganador"> TIRO GANADOR</label><br>
-        <label><input type="radio" name="opcion_servicio1" value="servicio1"> 1º SERVICIO</label><br>
-        <label><input type="radio" name="opcion_servicio1" value="servicio2"> 2º SERVICIO</label><br>
-        <label><input type="radio" name="opcion_servicio1" value="doble-falta"> DOBLE FALTA</label>
+        <label><input type="radio" name="ace-tiro" id="opcion1_ace1" value="ace"> ACE</label><br>
+        <label><input type="radio" name="ace-tiro" id="opcion1_tiro_ganador" value="tiro-ganador"> TIRO GANADOR</label><br>
+        <label><input type="radio" name="servicio" id="opcion1_servicio1" value="servicio1"> 1º SERVICIO</label><br>
+        <label><input type="radio" name="servicio" id="opcion1_servicio2" value="servicio2"> 2º SERVICIO</label><br>
+        <label><input type="radio" id="opcion1_dobleFalta" value="doble-falta"> DOBLE FALTA</label>
       </div>
     </div>
 
@@ -242,6 +242,61 @@
     </div>
   </div>
 </main>
+<!-- Ventana Modal con las estadisticas de cada set  -->
+<div id="idModal" class="modal">
+  <div class="modal-content">
+      <div class="modal-header">
+          <span class="close">×</span>
+      </div>
+      <div class="modal-body">
+        <table border="1">
+          <tr>
+            <th>Estadística</th>
+            <th>Jugador 1</th>
+            <th>Jugador 2</th>
+          </tr>
+          <tr>
+            <td>Aces</td>
+            <td id="jugador1_aces">0</td>
+            <td id="jugador2_aces">0</td>
+          </tr>
+          <tr>
+            <td>Tiro Ganador</td>
+            <td id="jugador1_tiro_ganador">0</td>
+            <td id="jugador2_tiro_ganador">0</td>
+          </tr>
+          <tr>
+            <td>1º Servicio</td>
+            <td id="jugador1_servicio1">0</td>
+            <td id="jugador2_servicio1">0</td>
+          </tr>
+          <tr>
+            <td>2º Servicio</td>
+            <td id="jugador1_servicio2">0</td>
+            <td id="jugador2_servicio2">0</td>
+          </tr>
+          <tr>
+            <td>Doble-Falta</td>
+            <td id="jugador1_doble_falta">0</td>
+            <td id="jugador2_doble_falta">0</td>
+          </tr>
+          <tr>
+            <td>Break Points</td>
+            <td id="jugador1_break_points">0</td>
+            <td id="jugador2_break_points">0</td>
+          </tr>
+          <tr>
+            <td>Otros</td>
+            <td id="jugador1_otros">0</td>
+            <td id="jugador2_otros">0</td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+          <button id="idcerrar"class="close">Cerrar</button>
+      </div>
+  </div>
+</div>
   </body>
 </html>
 
