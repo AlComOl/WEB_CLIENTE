@@ -244,17 +244,17 @@
 </main>
 <!-- Ventana Modal con las estadisticas de cada set  -->
 <div id="idModal" class="modal">
-  <div class="modal-content">
-      <div class="modal-header">
-          <span class="close">×</span>
-      </div>
-      <div class="modal-body">
-        <table border="1">
+  <div class="container mt-4">
+    <div class="modal-body">
+      <table class="table table-bordered text-center">
+        <thead>
           <tr>
             <th>Estadística</th>
-            <th>Jugador 1</th>
+            <th >Jugador 1</th>
             <th>Jugador 2</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>Aces</td>
             <td id="jugador1_aces">0</td>
@@ -290,11 +290,12 @@
             <td id="jugador1_otros">0</td>
             <td id="jugador2_otros">0</td>
           </tr>
-        </table>
-      </div>
-      <div class="modal-footer">
-          <button id="idcerrar"class="close">Cerrar</button>
-      </div>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button id="idcerrar" class="close btn btn-secondary">Cerrar</button>
+    </div>
   </div>
 </div>
   </body>

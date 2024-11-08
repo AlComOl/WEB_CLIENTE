@@ -187,6 +187,8 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 //si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set
         }else if (partido1.jugador2.juego === 5&&partido1.puntaje2===3 && partido1.jugador2.juego >= partido1.jugador1.juego + 2) {
             partido1.jugador2.set++;  // Incrementa el set del jugador 1
+            //sacamos por pantalla estadisticas
+            muestraModalEstadisticas();
             partido1.jugador2.juego=0; 
               //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
              if(selecionado === "3"){
@@ -230,22 +232,32 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
     // modal
 //primero se habre si terminamos el set 
 let muestraModalEstadisticas = () => { 
-
 if(partido1.jugador1.juego===5 || partido1.jugador2.juego===5){
-
     document.getElementById('idModal').style='display:block';
     
 }
-
+//cierra las estadisticas
 };
+let cierraModal=document.getElementById('idModal');
+cierraModal.addEventListener('click',() => {
+    cierraModal.style='display:none';
+});
+//sin la funcion flecha
+// let pantallaModal=document.getElementById('idModal');
+// pantallaModal.addEventListener('click',function(){
+//     pantallaModal .style='display:none';
+
+// });
+
+
 
 // Si el usuario hace clic fuera de la ventana, se cierra.
-window.addEventListener("click", function(event) {
-    // Verifica si el objetivo del clic es el botón de cerrar
-    if (event.target === document.getElementById('idcerrar')) {
-        // Cambia el estilo del modal para ocultarlo
-        document.getElementById('idModal').style.display = "none";
-    }
-});
+// window.addEventListener("click", function(event) {
+//     // Verifica si el objetivo del clic es el botón de cerrar
+//     if (event.target === document.getElementById('idcerrar')) {
+//         // Cambia el estilo del modal para ocultarlo
+//         document.getElementById('idModal').style.display = "none";
+//     }
+// });
 
 }

@@ -104,22 +104,28 @@ h5.text-center {
 }
 
 
-/*VENTANA MODAL */
-.modal{
+/* VENTANA MODAL */
+.modal {
     display: none;
-    flex: auto;
-    height: 300px;
-    width: 200px;
+    position: fixed; /* Fija la posición */
+   
+    transform: translate(100%, 0%); /* Ajusta la posición para que quede centrado */
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Tamaño máximo */
     background-color: white;
-
+    padding: 20px; /* Espaciado interior */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
 }
-.modal-body{
 
+/* Celdas de la tabla */
+.modal td, .modal th {
+    padding: 8px;
+    text-align: center; /* Centrado del texto */
 }
-.modal>tr{
-background-color: burlywood;
 
-}
-.modal>tr{
+/* Estilo para las filas de la tabla */
+.modal tr {
+    background-color: burlywood;
     color: black;
 }
