@@ -49,9 +49,12 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
             partido1=new Partido(selecionado,jugador1Nombre,jugador2Nombre,ranking1,ranking2);
             //creamos las estadisticas del set instanciando un objeto de set con la funcion
-             partido1.crearSet(0);
+             partido1.crearSet();
+             console.log(partido1.sets);
         };
         muestraPantallaJuego();
+       
+       
         
     };  
 
@@ -71,16 +74,19 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 // guardo estadisticas dentro de set
 
                 if(document.getElementById('opcion1_ace1').checked){
-                    partido1.sets[partido1.indexSets].acc++;
+                    console.log(partido1.indexSets);
+                   
+                    partido1.sets[partido1.indexSets].acc1++;
+                    
                 }
                 if(document.getElementById('opcion1_tiro_ganador').checked){
-                    partido1.sets[partido1.indexSets].tg++;
+                    partido1.sets[partido1.indexSets].tg1++;
                 }
                 if(document.getElementById('opcion1_servicio1').checked){
-                    partido1.sets[partido1.indexSets].servicio1++;
+                    partido1.sets[partido1.indexSets].servicio1_1++;
                 }
                 if(document.getElementById('opcion1_servicio2').checked){
-                    partido1.sets[partido1.indexSets].servicio2++;
+                    partido1.sets[partido1.indexSets].servicio2_1++;
                 }
                 if(document.getElementById('opcion1_dobleFalta').checked){
                     partido1.sets[partido1.indexSets].df++;
@@ -163,6 +169,8 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
         }else if (partido1.jugador1.juego === 5&&partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
             partido1.jugador1.set++;  // Incrementa el set del jugador 1
+              //indice para cambiar el id a renderizar
+            
 //sacamos por pantalla estadisticas
             muestraModalEstadisticas();
             partido1.jugador1.juego=0; 
@@ -180,13 +188,15 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
                     alert('LA FUMADA HA TERMINADO');
                  }
              }
-             //indice para cambiar el id a renderizar
+           
             partido1.indexSets++;
-            
+            partido1.crearSet();
 
 //si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set
         }else if (partido1.jugador2.juego === 5&&partido1.puntaje2===3 && partido1.jugador2.juego >= partido1.jugador1.juego + 2) {
             partido1.jugador2.set++;  // Incrementa el set del jugador 1
+//indice para cambiar el id a renderizar
+              
             //sacamos por pantalla estadisticas
             muestraModalEstadisticas();
             partido1.jugador2.juego=0; 
@@ -207,7 +217,8 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
                 }
              }
              //indice para cambiar el id a renderizar
-            partido1.indexSets++;
+             partido1.indexSets++;
+             partido1.crearSet();
         }
 }
 
@@ -233,7 +244,18 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 //primero se habre si terminamos el set 
 let muestraModalEstadisticas = () => { 
 if(partido1.jugador1.juego===5 || partido1.jugador2.juego===5){
+   document.getElementById('jugador1_aces').textContent=partido1.sets[partido1.indexSets].acc1;
+   document.getElementById('jugador2_aces').textContent=partido1.sets[partido1.indexSets].acc2;
+
+   document.getElementById('jugador1_tiro_ganador').textContent=partido1.sets[partido1.indexSets].tganador1;
+   document.getElementById('jugador2_tiro_ganador').textContent=partido1.sets[partido1.indexSets].tganador2;
+
+   document.getElementById('jugador1_servicio1').textContent=partido1.sets[partido1.indexSets].servicio1_1;
+   document.getElementById('jugador2_servicio1').textContent=partido1.sets[partido1.indexSets].servicio2_1;
+
+
     document.getElementById('idModal').style='display:block';
+    
     
 }
 //cierra las estadisticas
@@ -249,15 +271,9 @@ cierraModal.addEventListener('click',() => {
 
 // });
 
+//mostrar estadisticas 
 
 
-// Si el usuario hace clic fuera de la ventana, se cierra.
-// window.addEventListener("click", function(event) {
-//     // Verifica si el objetivo del clic es el botón de cerrar
-//     if (event.target === document.getElementById('idcerrar')) {
-//         // Cambia el estilo del modal para ocultarlo
-//         document.getElementById('idModal').style.display = "none";
-//     }
-// });
+
 
 }

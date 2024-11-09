@@ -114,17 +114,17 @@ h5.text-center {
     max-width: 500px; /* Tamaño máximo */
     background-color: white;
     padding: 20px; /* Espaciado interior */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(227, 18, 18, 0.1); /* Sombra */
 }
 
-/* Celdas de la tabla */
+/* Celdas */
 .modal td, .modal th {
     padding: 8px;
     text-align: center; /* Centrado del texto */
 }
 
-/* Estilo para las filas de la tabla */
+/*filas  */
 .modal tr {
     background-color: burlywood;
     color: black;

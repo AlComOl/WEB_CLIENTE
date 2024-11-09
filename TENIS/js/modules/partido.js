@@ -8,28 +8,31 @@ class Partido{
        this.puntaje2=0;
        this.llusJugador1=0;
        this.llusJugador2=0
+       this.tie_Jugador1=0;
+       this.tie_Jugador2=0;
        this.empate=false;
        this.indexSets=0;
        this.setpartido=setpart;
        //cada set tiene su estadistica
+       console.log(setpart);
         if(setpart==="3"){
             this.sets= new Array(2);
         }else if(setpart==="5"){
             this.sets= new Array(4);
         }
-
-         // Inicializar el array con instancias de Set
-         const numberOfSets = setpart === "3" ? 3 : 5; 
-         this.sets = Array.from({ length: numberOfSets }, () => new Set());
+        console.log(this.sets);
+        //  // Inicializar el array con instancias de Set
+        //  const numberOfSets = setpart === "3" ? 3 : 5; 
+        //  this.sets = Array.from({ length: numberOfSets }, () => new Set());
      
         
-    }
+     }
 
     
     
    crearSet() {
         let nuevoSet=new Set();//instancia de set(estadisticas)
-        this.sets.push(nuevoSet);//lo meto en el array de sets
+        this.sets[this.indexSets]=nuevoSet//lo meto en el array de sets
         
     }
 

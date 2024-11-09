@@ -1,12 +1,18 @@
 class Set{
-    ///se podirallamar estadistica
-    constructor(acc,tg,servicio1,servicio2,df,tieBreak){
-        this.acc=acc;
-        this.tganador=tg;
-        this.servicio1=servicio1;
-        this.servicio2=servicio2;
-        this.df=df;
-        this.tieBreak=tieBreak;
+    ///se podira llamar estadistica
+
+    constructor(){
+        this.acc1=0;
+        this.acc2=0;
+        this.tganador1=0;
+        this.tganador2=0
+        this.servicio1_1=0;
+        this.servicio2_1=0;
+        this.servicio2_1=0;
+        this.servicio2_2=0;
+        this.df1=0;
+        this.df2=0;
+        this.tieBreak=0;
     }
 }
 
