@@ -193,8 +193,8 @@
           </tr>
           <tr>
               <td colspan="2" class="bg-success text-white">JUEGOS</td>
-              <td id="juegosJugador1" class="bg-success text-white"></td>
-              <td id="juegosJugador2" class="bg-danger text-white"></td>
+              <td id="juegosJugador1" class="bg-success text-white">0</td>
+              <td id="juegosJugador2" class="bg-danger text-white">0</td>
               <td colspan="2" class="bg-danger text-white">JUEGOS</td>
           </tr>
       </tbody>
@@ -233,15 +233,15 @@
     <!-- Estadísticas del Jugador 2 -->
     <div id="estadistica-P2" class="col-md-3 ">
       <div>
-        <label><input type="radio" id="ace2" name="opcion_ace2" value="ace"> ACE</label><br>
-        <label><input type="radio" id="tiro-ganador" name="opcion_ace2" value="tiro-ganador"> TIRO GANADOR</label><br>
-        <label><input type="radio" id="servicio1" name="opcion_servicio2" value="servicio1"> 1º SERVICIO</label><br>
-        <label><input type="radio" id="servicio2" name="opcion_servicio2" value="servicio2"> 2º SERVICIO</label><br>
-        <label><input type="radio" id="doble-falta" name="opcion_servicio2" value="doble-falta"> DOBLE FALTA</label>
+        <label><input type="radio" name="ace-tiro" id="opcion1_ace2" value="acc"> ACE</label><br>
+        <label><input type="radio" name="ace-tiro" id="opcion2_tiro_ganador" value="tiro-ganador"> TIRO GANADOR</label><br>
+        <label><input type="radio" name="servicio" id="opcion2_servicio1" value="servicio1"> 1º SERVICIO</label><br>
+        <label><input type="radio" name="servicio" id="opcion2_servicio2" value="servicio2"> 2º SERVICIO</label><br>
+        <label><input type="radio" id="opcion2_dobleFalta" value="doble-falta"> DOBLE FALTA</label>
       </div>
     </div>
   </div>
-</main>
+</main>   
 <!-- Ventana Modal con las estadisticas de cada set  -->
 <div id="idModal" class="modal">
   <div class="container mt-4">

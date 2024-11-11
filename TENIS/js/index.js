@@ -1,4 +1,3 @@
-import { Jugador } from './modules/jugador.js';
 import { Partido } from './modules/partido.js';
 
 
@@ -6,6 +5,7 @@ import { Partido } from './modules/partido.js';
 window.onload=function(){
   var selecionado;
   var partido1;
+  var pInicio;
   document.getElementById('empezarPartida').addEventListener('click',inicioJuego);
 
   
@@ -13,7 +13,7 @@ window.onload=function(){
     function inicioJuego(){
 
 //elimina la pantalla del formulario de datos requeridos y muestra el marcador
-var pInicio= document.getElementById("datos");//declara una variable introducciendo los elemetos(container) en ella
+ pInicio= document.getElementById("datos");//declara una variable introducciendo los elemetos(container) en ella
         pInicio.style.display="none";
 //agrego los id a las variables 
         let setsPartido=document.getElementById('setsPartido');//coje sets
@@ -22,7 +22,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         let torneoset5=document.getElementById('torneoset5');//a 5 
        
 
-//  ==>CODIGO ANTERIOR OPTIMIZADO CON LA FINCION FLECHA
+//  ==>CODIGO ANTERIOR OPTIMIZADO CON LA FUNCION FLECHA
         let muestraPantallaJuego = () => {   
          let valorSeleccionado = setsPartido.options[setsPartido.selectedIndex].value;
          selecionado=valorSeleccionado;
@@ -99,6 +99,23 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         } else if (anotador === 'puntoJugador2'&& partido1.empate==false) {
             if (partido1.puntaje2 < puntosJuego.length - 1) {
                 partido1.puntaje2++;
+
+                if(document.getElementById('opcion1_ace2').checked){
+                    console.log(partido1.indexSets);
+                    partido1.sets[partido1.indexSets].acc1++;
+                }
+                if(document.getElementById('opcion2_tiro_ganador').checked){
+                    partido1.sets[partido1.indexSets].tg1++;
+                }
+                if(document.getElementById('opcion2_servicio1').checked){
+                    partido1.sets[partido1.indexSets].servicio1_1++;
+                }
+                if(document.getElementById('opcion2_servicio2').checked){
+                    partido1.sets[partido1.indexSets].servicio2_1++;
+                }
+                if(document.getElementById('opcion2_dobleFalta').checked){
+                    partido1.sets[partido1.indexSets].df++;
+                }
                 
             }
         }
@@ -134,7 +151,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
 
     function comprobarGanador() {
         if (partido1.puntaje1 === 4 && partido1.empate==false ) {
-// si los puntos del cons son mayor a 3(40) y boleano es true
+// si los puntaje del cons son mayor a 3(40) y boleano es true
             partido1.jugador1.juego += 1;
             let juegosJugador1=document.getElementById('juegosJugador1');
             document.getElementById('juegosJugador1').textContent = partido1.jugador1.juego;
@@ -147,7 +164,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             reiniciarPuntaje();
 
         
-//comprobar el deuge 
+//comprobar el deuge  en el constructor
       
         }else if(partido1.llusJugador1>partido1.llusJugador2+1){
             let juegomas1=partido1.jugador1.juego += 1;
@@ -165,13 +182,14 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
             reiniciarPuntaje();
             console.log("nuevo2");
         
-    //si hay hay 6 juegos del jugador 1 sin empate a juegos(tiebreak) anotar set
+//si hay hay 6 juegos del jugador 1 sin empate a juegos(tiebreak) anotar set///////////////////////////
 
-        }else if (partido1.jugador1.juego === 5&&partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
+        }else if (partido1.jugador1.juego === 5 && partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
             partido1.jugador1.set++;  // Incrementa el set del jugador 1
+            reinciarSetmas();
               //indice para cambiar el id a renderizar
             
-//sacamos por pantalla estadisticas
+    //sacamos por pantalla estadisticas
             muestraModalEstadisticas();
             partido1.jugador1.juego=0; 
            
@@ -179,33 +197,63 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
              if(selecionado === "3"){
                 document.getElementById('cont_jugador1_'+(partido1.indexSets+1)+'set3').textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
                 if(partido1.jugador1.set===3){
-                    console.log("caundo ya tengo 3 = "+partido1.jugador1.set);
-                        alert('LA FUMADA HA TERMINADO');
+                    if(partido1.jugador1.set>partido1.jugador2.set){
+                        alert('LA FUMADA HA TERMINADO EL GANADOR ES JUGADOR 1');
+                        if(partido1.jugador1.set>partido1.jugador2.set)
+                        reiniciarSet(); 
+                        pInicio.style.display="block";
+                        panelPuntos.style.display="none" 
+                        displaySets3.style.display = "none";
+                        displaySets5.style.display = "none";
+                        reiniciarPuntaje();
+
+                    }else{
+                        alert('LA FUMADA HA TERMINADO EL GANADOR ES JUGADOR 2');
+                        reiniciarSet();
+                        pInicio.style.display="block";
+                        panelPuntos.style.display="none" 
+                        displaySets3.style.display = "none";
+                        displaySets5.style.display = "none";
+                        reiniciarPuntaje()
+
+                    }
+                      
+                    
+                       
                 }
              }else if(selecionado === "5"){
                 document.getElementById('cont_jugador1_'+(partido1.indexSets+1)+'set5').textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
                 if(partido1.set===5){
                     alert('LA FUMADA HA TERMINADO');
+                   
                  }
              }
            
             partido1.indexSets++;
             partido1.crearSet();
 
-//si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set
-        }else if (partido1.jugador2.juego === 5&&partido1.puntaje2===3 && partido1.jugador2.juego >= partido1.jugador1.juego + 2) {
+//si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set////////////////////////////////////////
+        }else if (partido1.jugador2.juego >= 5 && partido1.puntaje2===3 && partido1.jugador2.juego>partido1.jugador1.juego+2) {
             partido1.jugador2.set++;  // Incrementa el set del jugador 1
-//indice para cambiar el id a renderizar
-              
+            reinciarSetmas(); 
             //sacamos por pantalla estadisticas
             muestraModalEstadisticas();
-            partido1.jugador2.juego=0; 
+            partido1.jugador2.juego=0;
+             
               //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
              if(selecionado === "3"){
                 document.getElementById('cont_jugador2_'+(partido1.indexSets+1)+'set3').textContent = partido1.jugador2.set;  // Muestra el nuevo valor del set en el marcador
+               console.log("antes de entrar a comprobar el set"+partido1.jugador2.set)
                 if(partido1.jugador2.set===3){
-                    console.log("caundo ya tengo 3 = "+partido1.jugador1.set);
-                        alert('LA FUMADA HA TERMINADO cuando tengo 3 sets');
+                    if(partido1.jugador2.set>partido1.jugador1.set){
+                        alert('LA FUMADA HA TERMINADO HA GANADO JUGADOR 2');
+                        reiniciarSet();
+                    }else{
+                        alert('LA FUMADA HA TERMINADO HA GANADO JUGADOR 1');
+                        reiniciarSet()
+
+                    }    
+                       
                 }
                  
              
@@ -214,6 +262,7 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
                 if(partido1.jugador2.set===5){
                     console.log("caundo ya tengo 5 = "+partido1.jugador1.set);
                         alert('LA FUMADA HA TERMINADO con 5 sets');
+                        
                 }
              }
              //indice para cambiar el id a renderizar
@@ -232,11 +281,32 @@ var pInicio= document.getElementById("datos");//declara una variable introduccie
         document.getElementById('deuce2').textContent = " ";
     }
 
+    function reiniciarSet(){
+            document.getElementById('cont_jugador1_1set3').textContent = "0";
+            document.getElementById('cont_jugador2_1set3').textContent = "0";
+            document.getElementById('cont_jugador1_2set3').textContent = "0";
+            document.getElementById('cont_jugador2_2set3').textContent = "0";
+            document.getElementById('cont_jugador1_3set3').textContent = "0";
+            document.getElementById('cont_jugador2_3set3').textContent = "0";
+    }
+
     function reiniciarDesempate() {
         // Restablece únicamente los puntajes de desempate sin tocar los puntajes generales
         partido1.llusJugador1 = 0;
         partido1.llusJugador2 = 0;
         partido1.empate = false;
+    }
+    function reinciarSetmas(){
+        // partido1.jugador1.juego = 0;
+        // partido1.jugador2.juego = 0;
+        // partido1.puntaje1 = 0; 
+        // partido1.puntuaje2=0;
+        // Actualizar el DOM aquí si es necesario
+        document.getElementById('puntajeJugador1').textContent = "0";
+        document.getElementById('puntajeJugador2').textContent = "0";
+        document.getElementById('juegosJugador1').textContent="0"; 
+        document.getElementById('juegosJugador2').textContent="0";
+        
     }
 
 
@@ -271,9 +341,7 @@ cierraModal.addEventListener('click',() => {
 
 // });
 
-//mostrar estadisticas 
-
-
+//mostrar estadçisticas 
 
 
 }

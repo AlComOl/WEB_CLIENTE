@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  </div>
+  <script>
+
+    fetch("https://scratchya.com.ar/javascriptya/listadoproductos.php")
+      .then(response => response.json())
+      .then(datos => {
+        for (let articulo of datos)
+          document.write(`${articulo.codigo} ${articulo.descripcion} ${articulo.precio}<br>`);
+      });
+    // console.log(datos);
+  </script>
+
+</body>
+
+</html>
