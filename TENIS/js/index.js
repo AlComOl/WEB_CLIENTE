@@ -22,36 +22,37 @@ window.onload=function(){
         let torneoset5=document.getElementById('torneoset5');//a 5 
        
 
-//  ==>CODIGO ANTERIOR OPTIMIZADO CON LA FUNCION FLECHA
+//Función para mostrar la pantalla 
         let muestraPantallaJuego = () => {   
-         let valorSeleccionado = setsPartido.options[setsPartido.selectedIndex].value;
+         let valorSeleccionado = setsPartido.options[setsPartido.selectedIndex].value;//introduce la opción del set en selecionado
          selecionado=valorSeleccionado;
-         let jugador1Nombre = document.getElementById('inputJugador1').value;
+         let jugador1Nombre = document.getElementById('inputJugador1').value;//Introduce en la variable el nombre de los jugadores
          let jugador2Nombre = document.getElementById('inputJugador2').value;
-          if(valorSeleccionado === "3") {
+          if(valorSeleccionado === "3") {//aparece el marcadores de sets segun la opcion del select
                  displaySets3.style.display = "block", displaySets5.style.display = "none";
                  torneoset3.textContent=document.getElementById('inputTorneo').value;
-                 document.getElementById('nomJugador1set3').textContent = jugador1Nombre;//nonbre jugador 1 si aparece table set3
+                 document.getElementById('nomJugador1set3').textContent = jugador1Nombre;//nombre jugador 1 si aparece table set3
                  document.getElementById('nomJugador2set3').textContent = jugador2Nombre;
                
-             }else {
+             }else {//el el caso de 5 aparece la tabla de 5 
                  displaySets3.style.display = "none", displaySets5.style.display = "block";
                  torneoset5.textContent=document.getElementById('inputTorneo').value;
                  document.getElementById('nomJugador1set5').textContent = jugador1Nombre;
                  document.getElementById('nomJugador2set5').textContent = jugador2Nombre;
             }
+        //Muestra el marcador en cualquiera de los 2 casos
           if(valorSeleccionado === "3"||valorSeleccionado === "5"){//aparece el panel puntos
                 panelPuntos.style.display="block" 
             } 
 
             let ranking1= document.getElementById('ranking1');
             let ranking2= document.getElementById('ranking2');
-
+            //instanciamos Partido pasando los valores introducidos anteriormente
             partido1=new Partido(selecionado,jugador1Nombre,jugador2Nombre,ranking1,ranking2);
             //creamos las estadisticas del set instanciando un objeto de set con la funcion
              partido1.crearSet();
-             console.log(partido1.sets);
         };
+        //Muestra la pantalla
         muestraPantallaJuego();
        
        
@@ -59,53 +60,52 @@ window.onload=function(){
     };  
 
 
-
-    let puntosJuego = ["0", "15", "30", "40","Ventaja"];
+//array puntos juego
+    let puntosJuego = ["0", "15", "30", "40"," "];
 
     document.getElementById('puntoJugador1').addEventListener('click', incrementarPuntaje);
     document.getElementById('puntoJugador2').addEventListener('click', incrementarPuntaje);
 
     function incrementarPuntaje(evento) {
         const anotador = evento.target.id;
-//anotar puentos en el constructor       
+//anotar puntos en el constructor jugador 1   
         if (anotador === 'puntoJugador1'&& partido1.empate==false) {
             if (partido1.puntaje1 < puntosJuego.length - 1) {
                 partido1.puntaje1++;
 // guardo estadisticas dentro de set
-
+//IndexSet es el atributos para indexar las estadisticas de cada set
                 if(document.getElementById('opcion1_ace1').checked){
-                    console.log(partido1.indexSets);
-                   
                     partido1.sets[partido1.indexSets].acc1++;
-                    
                 }
-                if(document.getElementById('opcion1_tiro_ganador').checked){
-                    partido1.sets[partido1.indexSets].tg1++;
-                }
+
                 if(document.getElementById('opcion1_servicio1').checked){
                     partido1.sets[partido1.indexSets].servicio1_1++;
                 }
+
                 if(document.getElementById('opcion1_servicio2').checked){
                     partido1.sets[partido1.indexSets].servicio2_1++;
                 }
-                if(document.getElementById('opcion1_dobleFalta').checked){
-                    partido1.sets[partido1.indexSets].df++;
+
+                if(document.getElementById('opcion1_tiro_ganador').checked){
+                    partido1.sets[partido1.indexSets].gg1++;
                 }
-                //hacer con todas los atributos de set lo mismo para
-                //que sean guardados en instancia de la clase set
+               
+                if(document.getElementById('opcion1_dobleFalta').checked){
+                    partido1.sets[partido1.indexSets].df1++;
+                }
+
                
             }
-           
+//anotar puntos en el constructor jugador 2           
         } else if (anotador === 'puntoJugador2'&& partido1.empate==false) {
             if (partido1.puntaje2 < puntosJuego.length - 1) {
                 partido1.puntaje2++;
 
                 if(document.getElementById('opcion1_ace2').checked){
-                    console.log(partido1.indexSets);
-                    partido1.sets[partido1.indexSets].acc1++;
+                    partido1.sets[partido1.indexSets].acc2++;
                 }
                 if(document.getElementById('opcion2_tiro_ganador').checked){
-                    partido1.sets[partido1.indexSets].tg1++;
+                    partido1.sets[partido1.indexSets].gg2++;
                 }
                 if(document.getElementById('opcion2_servicio1').checked){
                     partido1.sets[partido1.indexSets].servicio1_1++;
@@ -114,7 +114,7 @@ window.onload=function(){
                     partido1.sets[partido1.indexSets].servicio2_1++;
                 }
                 if(document.getElementById('opcion2_dobleFalta').checked){
-                    partido1.sets[partido1.indexSets].df++;
+                    partido1.sets[partido1.indexSets].df2++;
                 }
                 
             }
@@ -150,27 +150,28 @@ window.onload=function(){
     }
 
     function comprobarGanador() {
+//comprueba quien gana juego
         if (partido1.puntaje1 === 4 && partido1.empate==false ) {
-// si los puntaje del cons son mayor a 3(40) y boleano es true
             partido1.jugador1.juego += 1;
+           
             let juegosJugador1=document.getElementById('juegosJugador1');
             document.getElementById('juegosJugador1').textContent = partido1.jugador1.juego;
            console.log("Hola no es un empate y gano1");
             reiniciarPuntaje();
         } else if (partido1.puntaje2 === 4 && partido1.empate==false) {
             partido1.jugador2.juego += 1;
+          
             document.getElementById('juegosJugador2').textContent = partido1.jugador2.juego;
             console.log("Hola no es un empate y gano2");
             reiniciarPuntaje();
 
         
-//comprobar el deuge  en el constructor
+//comprueba en el caso de que haya deude empate a 40 
       
         }else if(partido1.llusJugador1>partido1.llusJugador2+1){
             let juegomas1=partido1.jugador1.juego += 1;
             document.getElementById('juegosJugador1').textContent=juegomas1;
             reiniciarDesempate(); 
-            console.log( partido1.llusJugador1=0);
             reiniciarPuntaje();
             
             console.log("nuevo1");
@@ -184,14 +185,12 @@ window.onload=function(){
         
 //si hay hay 6 juegos del jugador 1 sin empate a juegos(tiebreak) anotar set///////////////////////////
 
-        }else if (partido1.jugador1.juego === 5 && partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
+        }else if (partido1.jugador1.juego === 6 && partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
             partido1.jugador1.set++;  // Incrementa el set del jugador 1
             reinciarSetmas();
-              //indice para cambiar el id a renderizar
-            
-    //sacamos por pantalla estadisticas
-            muestraModalEstadisticas();
-            partido1.jugador1.juego=0; 
+            reiniciarPuntaje();   
+            muestraModalEstadisticas(); //sacamos por pantalla estadisticas
+            reiniciarJuego();
            
               //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
              if(selecionado === "3"){
@@ -233,12 +232,12 @@ window.onload=function(){
             partido1.crearSet();
 
 //si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set////////////////////////////////////////
-        }else if (partido1.jugador2.juego >= 5 && partido1.puntaje2===3 && partido1.jugador2.juego>partido1.jugador1.juego+2) {
+        }else if (partido1.jugador2.juego >= 6 && partido1.puntaje2===3 && partido1.jugador2.juego>partido1.jugador1.juego+2) {
             partido1.jugador2.set++;  // Incrementa el set del jugador 1
-            reinciarSetmas(); 
-            //sacamos por pantalla estadisticas
-            muestraModalEstadisticas();
-            partido1.jugador2.juego=0;
+            reinciarSetmas();//reinicia set 
+            reiniciarPuntaje();//reinicia marcador
+            muestraModalEstadisticas();//sacamos por pantalla estadisticas
+            reiniciarJuego()
              
               //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
              if(selecionado === "3"){
@@ -281,6 +280,11 @@ window.onload=function(){
         document.getElementById('deuce2').textContent = " ";
     }
 
+    function reiniciarJuego(){
+        partido1.jugador1.juego=0;
+        partido1.jugador2.juego=0;
+    }
+
     function reiniciarSet(){
             document.getElementById('cont_jugador1_1set3').textContent = "0";
             document.getElementById('cont_jugador2_1set3').textContent = "0";
@@ -301,7 +305,7 @@ window.onload=function(){
         // partido1.jugador2.juego = 0;
         // partido1.puntaje1 = 0; 
         // partido1.puntuaje2=0;
-        // Actualizar el DOM aquí si es necesario
+       
         document.getElementById('puntajeJugador1').textContent = "0";
         document.getElementById('puntajeJugador2').textContent = "0";
         document.getElementById('juegosJugador1').textContent="0"; 
@@ -313,15 +317,18 @@ window.onload=function(){
     // modal
 //primero se habre si terminamos el set 
 let muestraModalEstadisticas = () => { 
-if(partido1.jugador1.juego===5 || partido1.jugador2.juego===5){
+if(partido1.jugador1.juego===6 || partido1.jugador2.juego===6){
    document.getElementById('jugador1_aces').textContent=partido1.sets[partido1.indexSets].acc1;
    document.getElementById('jugador2_aces').textContent=partido1.sets[partido1.indexSets].acc2;
 
-   document.getElementById('jugador1_tiro_ganador').textContent=partido1.sets[partido1.indexSets].tganador1;
-   document.getElementById('jugador2_tiro_ganador').textContent=partido1.sets[partido1.indexSets].tganador2;
+   document.getElementById('jugador1_tiro_ganador').textContent=partido1.sets[partido1.indexSets].gg1;
+   document.getElementById('jugador2_tiro_ganador').textContent=partido1.sets[partido1.indexSets].gg2;
 
    document.getElementById('jugador1_servicio1').textContent=partido1.sets[partido1.indexSets].servicio1_1;
    document.getElementById('jugador2_servicio1').textContent=partido1.sets[partido1.indexSets].servicio2_1;
+
+   document.getElementById('jugador1_doble_falta').textContent=partido1.sets[partido1.indexSets].df1;
+   document.getElementById('jugador2_doble_falta').textContent=partido1.sets[partido1.indexSets].df2;
 
 
     document.getElementById('idModal').style='display:block';

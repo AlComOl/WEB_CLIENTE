@@ -4,8 +4,8 @@ class Set{
     constructor(){
         this.acc1=0;
         this.acc2=0;
-        this.tganador1=0;
-        this.tganador2=0
+        this.gg1=0;
+        this.gg2=0
         this.servicio1_1=0;
         this.servicio2_1=0;
         this.servicio2_1=0;
