@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  
+}
+
+body{
+    background:url(../assets/bg.jpeg);
+    font-family: Arial, sans-serif;
+}
+
+#datos{
+    display:block;
+    color:aliceblue;
+
+
+}
+section{
+    background-color:black;
+}
+#adminPanel5sets,
+#adminPanel3sets{
+    height: auto;
+    width: 50%;
+}
+
+#adminPanel5sets th ,
+#adminPanel3sets th{
+    color: aliceblue;
+}
+
+
+#displaySets5,
+#displaySets3 {
+    color: aliceblue;
+    display:none;
+}
+
+#nomJugador1set3,
+#nomJugador2set3,
+#nomJugador1set5,
+#nomJugador2set5
+{
+    color: aliceblue;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+#panelPuntos{
+    display: none;
+    margin-top: 10px;
+}
+#marcadorJugador1Set1,
+#marcadorJugador2Set1{
+    color: aliceblue;
+}
+
+#admin_cont_jugador1_3sets>td,
+#admin_cont_jugador2_3sets>td,
+#admin_cont_jugador1_5sets>td,
+#admin_cont_jugador2_5sets>td{
+    color: aliceblue;
+}
+
+
+
+#estadistica-P1,#estadistica-P2{
+    color: aliceblue;
+    background-color:rgb(110, 99, 86);
+    text-align: left;
+    height: 150px;
+    width: 250px;
+ 
+}
+.btn:active img {
+    height: 200px;
+    width: 250px; 
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgb(25, 42, 32);
+}
+
+
+/* Estilos específicos para el marcador */
+#marcadorJuego {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Mantiene el tamaño de las celdas */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow:0px 0px 10px 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 60px;
+}
+
+
+/* Centramos el título */
+h5.text-center {
+    font-size: 1.5em;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* VENTANA MODAL */
+.modal {
+    display: none;
+    position: fixed; /* Fija la posición */
+   
+    transform: translate(100%, 0%); /* Ajusta la posición para que quede centrado */
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Tamaño máximo */
+    background-color: white;
+    padding: 20px; /* Espaciado interior */
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(227, 18, 18, 0.1); /* Sombra */
+}
+
+/* Celdas */
+.modal td, .modal th {
+    padding: 8px;
+    text-align: center; /* Centrado del texto */
+}
+
+/*filas  */
+.modal tr {
+    background-color: burlywood;
+    color: black;
+}

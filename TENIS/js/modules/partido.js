@@ -14,7 +14,6 @@ class Partido{
        this.indexSets=0;
        this.setpartido=setpart;
        //cada set tiene su estadistica
-       console.log(setpart);
         if(setpart==="3"){
             this.sets= new Array(2);
         }else if(setpart==="5"){

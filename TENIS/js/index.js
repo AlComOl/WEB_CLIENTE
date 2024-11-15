@@ -61,7 +61,7 @@ window.onload=function(){
 
 
 //array puntos juego
-    let puntosJuego = ["0", "15", "30", "40"," "];
+    let puntosJuego = ["0", "15", "30", "40","Ventaja"];
 
     document.getElementById('puntoJugador1').addEventListener('click', incrementarPuntaje);
     document.getElementById('puntoJugador2').addEventListener('click', incrementarPuntaje);
@@ -72,6 +72,7 @@ window.onload=function(){
         if (anotador === 'puntoJugador1'&& partido1.empate==false) {
             if (partido1.puntaje1 < puntosJuego.length - 1) {
                 partido1.puntaje1++;
+                console.log(partido1.puntaje1);
 // guardo estadisticas dentro de set
 //IndexSet es el atributos para indexar las estadisticas de cada set
                 if(document.getElementById('opcion1_ace1').checked){
@@ -121,7 +122,7 @@ window.onload=function(){
         }
         console.log(partido1.puntaje1,partido1.puntaje2);
 //si hay empate a 40 o deuce
-        if(partido1.puntaje1===3 && partido1.puntaje2===3){//empate a puntos
+        if(partido1.puntaje1===3 && partido1.puntaje2===3){
             console.log("empate a 40 ");
             
             if(anotador === 'puntoJugador1' && partido1.empate==true){//solo entraria si estubieramos en deuge por el boleano a true
@@ -185,7 +186,7 @@ window.onload=function(){
         
 //si hay hay 6 juegos del jugador 1 sin empate a juegos(tiebreak) anotar set///////////////////////////
 
-        }else if (partido1.jugador1.juego === 6 && partido1.puntaje1===3 && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
+        }else if (partido1.jugador1.juego === 6  && partido1.jugador1.juego >= partido1.jugador2.juego + 2) {
             partido1.jugador1.set++;  // Incrementa el set del jugador 1
             reinciarSetmas();
             reiniciarPuntaje();   
@@ -195,10 +196,11 @@ window.onload=function(){
               //elegir si el partido es a 3 o 5 sets para que se renderice en pantalla
              if(selecionado === "3"){
                 document.getElementById('cont_jugador1_'+(partido1.indexSets+1)+'set3').textContent = partido1.jugador1.set;  // Muestra el nuevo valor del set en el marcador
-                if(partido1.jugador1.set===3){
-                    if(partido1.jugador1.set>partido1.jugador2.set){
+                if(partido1.jugador1.set===3){//REVISAR ESTO MAÑANA.
+                    if(partido1.jugador1.set>partido1.jugador2.set+2){
                         alert('LA FUMADA HA TERMINADO EL GANADOR ES JUGADOR 1');
-                        if(partido1.jugador1.set>partido1.jugador2.set)
+                        // if(partido1.jugador1.set>partido1.jugador2.set)
+                          
                         reiniciarSet(); 
                         pInicio.style.display="block";
                         panelPuntos.style.display="none" 
@@ -206,7 +208,7 @@ window.onload=function(){
                         displaySets5.style.display = "none";
                         reiniciarPuntaje();
 
-                    }else{
+                    }else if(partido1.jugador2.set>partido1.jugador1.set){
                         alert('LA FUMADA HA TERMINADO EL GANADOR ES JUGADOR 2');
                         reiniciarSet();
                         pInicio.style.display="block";
