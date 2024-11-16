@@ -1,5 +1,5 @@
 class Set{
-    ///se podira llamar estadistica
+///se podira llamar estadisticas la clase
 
     constructor(){
         this.acc1=0;

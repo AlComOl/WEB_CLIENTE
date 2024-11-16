@@ -1,30 +1,51 @@
 class Juego{
     
-    constructor(puntaje1,puntaje2,juego1,juego2,estadisticas){
-      this.puntaje1=puntaje1;
-      this.puntaje2=puntaje2;
-      this.juego1=juego1;
-      this.juego2=juego2;
+    constructor(){
+      this.puntaje1=1;
+      this.puntaje2=0;
+      this.juego1=0;
+      this.juego2=0;
     
        //estadisticas
 
-       this.estadisticas = [
-        'ace1', 'ace2', 
-        'servicio1_1', 'servicio1_2', 
-        'servicio2_1', 'servicio2_2', 
-        'gg1', 'gg2', 
-        'df1', 'df2', 
-        'juegos1', 'juegos2'
-    ];
+       this.estadisticas = new Map([
+        ['ace1', 0], 
+        ['ace2', 0],
+        ['servicio1_1', 0], 
+        ['servicio1_2', 0], 
+        ['servicio2_1', 0], 
+        ['servicio2_2', 0], 
+        ['gg1', 0], 
+        ['gg2', 0], 
+        ['df1', 0], 
+        ['df2', 0], 
+        ['juegos1', 0], 
+        ['juegos2', 0]
+    ]);
     
-    
+   
     }
-    incrementarPuntaje(){
-        if(){
-            
-        }
+    anotaJugador1(){
+      this.puntaje1++;
     }
 
+    anotaJugador2(){
+      this.puntaje2++;
+
+    }
+
+    anotaJuego1(){
+
+    }
+
+    anotaJuego2(){
+        
+    }
+
+    anotarEstadisticas(){
+
+    }
+ 
 }    
 
 export {Juego}

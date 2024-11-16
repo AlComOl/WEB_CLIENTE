@@ -101,7 +101,7 @@ window.onload=function(){
         } else if (anotador === 'puntoJugador2'&& partido1.empate==false) {
             if (partido1.puntaje2 < puntosJuego.length - 1) {
                 partido1.puntaje2++;
-
+//estadisticas jugador 2
                 if(document.getElementById('opcion1_ace2').checked){
                     partido1.sets[partido1.indexSets].acc2++;
                 }
@@ -149,9 +149,9 @@ window.onload=function(){
         // Comprobar si hay un ganador
         comprobarGanador();
     }
-
-    function comprobarGanador() {
 //comprueba quien gana juego
+    function comprobarGanador() {
+
         if (partido1.puntaje1 === 4 && partido1.empate==false ) {
             partido1.jugador1.juego += 1;
            
@@ -233,7 +233,7 @@ window.onload=function(){
             partido1.indexSets++;
             partido1.crearSet();
 
-//si hay hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set////////////////////////////////////////
+//si hay 6 juegos del jugador 2 sin empate a juegos(tiebreak) anotar set////////////////////////////////////////
         }else if (partido1.jugador2.juego >= 6 && partido1.puntaje2===3 && partido1.jugador2.juego>partido1.jugador1.juego+2) {
             partido1.jugador2.set++;  // Incrementa el set del jugador 1
             reinciarSetmas();//reinicia set 
@@ -247,10 +247,10 @@ window.onload=function(){
                console.log("antes de entrar a comprobar el set"+partido1.jugador2.set)
                 if(partido1.jugador2.set===3){
                     if(partido1.jugador2.set>partido1.jugador1.set){
-                        alert('LA FUMADA HA TERMINADO HA GANADO JUGADOR 2');
+                        alert('PARTIDO HA TERMINADO HA GANADO JUGADOR 2');
                         reiniciarSet();
                     }else{
-                        alert('LA FUMADA HA TERMINADO HA GANADO JUGADOR 1');
+                        alert('PARTIDO HA TERMINADO HA GANADO JUGADOR 1');
                         reiniciarSet()
 
                     }    
@@ -262,7 +262,7 @@ window.onload=function(){
                 document.getElementById('cont_jugador2_'+(partido1.indexSets+1)+'set5').textContent = partido1.jugador2.set;  // Muestra el nuevo valor del set en el marcador
                 if(partido1.jugador2.set===5){
                     console.log("caundo ya tengo 5 = "+partido1.jugador1.set);
-                        alert('LA FUMADA HA TERMINADO con 5 sets');
+                        alert('PARTIDO HA TERMINADO con 5 sets');
                         
                 }
              }
@@ -275,18 +275,18 @@ window.onload=function(){
     function reiniciarPuntaje() {
         partido1.puntaje1 = 0; // Reiniciar puntaje jugador 1
         partido1.puntaje2 = 0; // Reiniciar puntaje jugador 2
-        // Actualizar el DOM aquí si es necesario
+        // Actualizar puntos
         document.getElementById('puntajeJugador1').textContent = "0";
         document.getElementById('puntajeJugador2').textContent = "0";
         document.getElementById('deuce1').textContent = " ";
         document.getElementById('deuce2').textContent = " ";
     }
-
+//reinicia el juego 
     function reiniciarJuego(){
         partido1.jugador1.juego=0;
         partido1.jugador2.juego=0;
     }
-
+// reinicia los sets
     function reiniciarSet(){
             document.getElementById('cont_jugador1_1set3').textContent = "0";
             document.getElementById('cont_jugador2_1set3').textContent = "0";
@@ -339,18 +339,11 @@ if(partido1.jugador1.juego===6 || partido1.jugador2.juego===6){
 }
 //cierra las estadisticas
 };
+//cierra el modal 
 let cierraModal=document.getElementById('idModal');
 cierraModal.addEventListener('click',() => {
     cierraModal.style='display:none';
 });
-//sin la funcion flecha
-// let pantallaModal=document.getElementById('idModal');
-// pantallaModal.addEventListener('click',function(){
-//     pantallaModal .style='display:none';
-
-// });
-
-//mostrar estadçisticas 
 
 
 }

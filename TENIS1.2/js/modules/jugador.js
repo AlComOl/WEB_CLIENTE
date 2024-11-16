@@ -1,9 +1,10 @@
+
 class Jugador{
 
-    constructor(nombre,ranking){
+    constructor(nombre,ranking,nacionalidad){
         this.nombre=nombre;
         this.ranking=ranking;
-       
+        this.nacionalidad=nacionalidad;
 
     }
 
