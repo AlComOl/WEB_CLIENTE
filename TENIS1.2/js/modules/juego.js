@@ -1,6 +1,8 @@
+import { Partido } from "./partido.js";
 class Juego{
     
-    constructor(){
+    constructor(partido1){
+      this.partido = partido1; // Guardar referencia a la instancia de Partido
       this.puntaje1=1;
       this.puntaje2=0;
       this.juego1=0;
@@ -34,17 +36,22 @@ class Juego{
 
     }
 
-    anotaJuego1(){
+    anotaJuego(){
+      if(this.puntaje1>this.puntaje2+2 && this.puntaje1>=2 && juego1<=this.partido.sets){
+        this.juego1++
+      }else if(this.puntaje2>this.puntaje1+2 && juego2<=this.partido.sets){
+        this.juego2++;
+      }
 
     }
 
-    anotaJuego2(){
+    // anotaJuego2(){
         
-    }
+    // }
 
-    anotarEstadisticas(){
+    // anotarEstadisticas(){
 
-    }
+    // }
  
 }    
 

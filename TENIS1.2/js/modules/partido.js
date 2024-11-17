@@ -4,7 +4,7 @@ class Partido{
        this.jugador1= new Jugador(jugador1Nombre,ranking1);
        this.jugador2= new Jugador(jugador2Nombre,ranking2);
        this.nombreTorneo=nTorneo;
-       this.sets=0;
+       this.sets=sets;
       
 
        

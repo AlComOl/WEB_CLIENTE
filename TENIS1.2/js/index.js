@@ -17,14 +17,18 @@ var juego1;
 
 
    partido1 = new Partido(jugador1Nombre,ranking1,jugador2Nombre,ranking2,nTorneo,sets);
-   juego1=new Juego();
+   juego1=new Juego(partido1);
 
    console.log(partido1);
    console.log(juego1);
 
   juego1.anotaJugador1();
+  juego1.anotaJuego();
+  console.log(`Juegos jugador 1: ${juego1.juego1}, Juegos jugador 2: ${juego1.juego2}`);
 
   
 }
+
+
 
   
