@@ -63,7 +63,7 @@ let mostrarImagenes = () => {
     if (primeraCarga === true) {
         let imagen = document.createElement("img");
         imagen.setAttribute("id", "imagen");
-        imagen.setAttribute("src", "./imagenes/img_" + contImagen + ".jpg");
+        imagen.setAttribute("src", "../imagenes/img_" + contImagen + ".jpg");
         document.getElementById("imagenes").appendChild(imagen);
         primeraCarga = false;
     }
@@ -76,7 +76,7 @@ let siguienteImagen = () => {
         contImagen = 1;
     }
     let imagen = document.getElementById("imagen");
-    imagen.setAttribute("src", "./imagenes/img_" + contImagen + ".jpg");
+    imagen.setAttribute("src", "../imagenes/img_" + contImagen + ".jpg");
 }
 
 //Funcion para cambiar/pasar las imagenes retrocediendo (anterior)
@@ -86,6 +86,6 @@ let anteriorImagen = () => {
         contImagen = 3;
     }
     let imagen = document.getElementById("imagen");
-    imagen.setAttribute("src", "./imagenes/img_" + contImagen + ".jpg");
+    imagen.setAttribute("src", "../imagenes/img_" + contImagen + ".jpg");
 }
 

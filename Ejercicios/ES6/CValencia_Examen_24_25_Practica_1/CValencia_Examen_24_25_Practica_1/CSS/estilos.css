@@ -1,0 +1,79 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* border: 1px solid black; */
+}
+
+.btn {
+    font-size: 30px;
+    margin: 2%;
+    width: 40%;
+}
+
+#total {
+    display: flex;
+}
+
+#total > div {
+    width: 50%;
+}
+
+#mostrarTabla {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+a {
+    color: black;
+}
+
+#botonesAumento {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#tablaUsuarios {
+    height: 500px;
+    width: 100%;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+#tabla1 {
+    text-align: center;
+    width: 90%;
+    background-color: rgb(196, 239, 255);
+}
+
+tr:hover {
+    background-color: aliceblue;
+}
+
+#formularioUsuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#formulario {
+    border: 1px solid black;
+    border-radius: 2%;
+    padding: 5%;
+}
+
+.btn:last-of-type {
+    font-size: 20px;
+}
+
+#muestrate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

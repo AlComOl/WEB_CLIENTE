@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/estilos.css">
+    <script type="text/javascript" src="../JS/examenPractica1.js"></script>
+    <title>Iniciar Sesion</title>
+</head>
+
+<body>
+
+    <div id="total">
+        <div id="mostrarTabla">
+            <div id="botonesAumento">
+                <button id="anyadir" class="btn btn-primary"> + </button>
+                <button id="quitar" class="btn btn-primary"> - </button>
+            </div>
+
+            <div id="tablaUsuarios">
+                <table class="table" id="tabla1">
+
+                </table>
+            </div>
+
+        </div>
+        <div id="formularioUsuario">
+            <form id="formulario" hidden>
+                <fieldset>
+                    <h3 id="nombreUsu"></h3>
+                    <br><br>
+                    <label for="usuario" id="usus"></label>
+                    <input type="text" id="contrasenya">
+                    <br>
+                    <input type="number" id="leNumero" min="3" max="5" placeholder="3">
+                    <br>
+                    <button class="btn btn-primary" id="login"> Login </button>
+                </fieldset>
+            </form>
+        </div>
+        <div id="muestrate" hidden>
+            <h1 id="nombreUsuarioLog"></h1>
+            <div id="slider"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
